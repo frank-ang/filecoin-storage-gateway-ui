@@ -5,6 +5,8 @@ import React from 'react'
 import Container from 'react-bootstrap/Container';
 import Menubar from './components/Menubar'
 import Home from './components/Home'
+import DataSets from './components/DataSets'
+
 import "./index.css";
 
 import { 
@@ -31,6 +33,7 @@ function App() {
         <Router>
           <Routes>
             <Route exact path="/" element={<Home/>} />
+            <Route exact path="datasets" element={<DataSets/>} />
           </Routes>
         </Router>
       </Container>

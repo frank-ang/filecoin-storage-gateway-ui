@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Nav, NavDropdown, Navbar } from 'react-bootstrap';
 
 function Menubar() {
@@ -10,17 +10,15 @@ function Menubar() {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
                     <Nav.Link href="/">Home</Nav.Link>
-                    <NavDropdown title="Data Sets" id="basic-nav-dropdown">
+                    <Nav.Link href="/datasets">Data Sets</Nav.Link>
+
+                    <NavDropdown title="Feature Backlog" id="basic-nav-dropdown">
                         <NavDropdown.Item href="/datasets">Configure Data Sets</NavDropdown.Item>
                         <NavDropdown.Item href="/prep">Prepare Data Sets</NavDropdown.Item>
                         <NavDropdown.Item href="/repl">Replicate Data Sets</NavDropdown.Item>
                         <NavDropdown.Item href="/index">Index Data Sets</NavDropdown.Item>
-                    </NavDropdown>
-                    <NavDropdown title="Retrieve" id="basic-nav-dropdown">
                         <NavDropdown.Item href="/browse">Data Set Browser</NavDropdown.Item>
-                    </NavDropdown>
-                    <NavDropdown title="Settings" id="basic-nav-dropdown">
-                        <NavDropdown.Item href="/wallet">Wallet</NavDropdown.Item>
+                        <NavDropdown.Item href="/settings">Settings</NavDropdown.Item>
                     </NavDropdown>
                     </Nav>
                     <Nav>
