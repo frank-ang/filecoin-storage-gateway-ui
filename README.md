@@ -5,7 +5,18 @@ First commit.
 npx create-react-app filecoin-storage-gateway-ui
 ```
 
-Remainder below is boilerplate.
+
+Refactor the app with navigation and react-router into sub-components.
+
+1. Install react bootstrap and router
+    ```sh
+    npm install react-router-dom
+    npm install react-bootstrap bootstrap
+    ```
+
+---
+
+# Remainder below is boilerplate.
 
 # Getting Started with Create React App
 
