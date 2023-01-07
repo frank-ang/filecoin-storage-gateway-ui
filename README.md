@@ -5,6 +5,7 @@ First commit.
 npx create-react-app filecoin-storage-gateway-ui
 ```
 
+# Futher build steps..
 
 Refactor the app with navigation and react-router into sub-components.
 
@@ -12,6 +13,8 @@ Refactor the app with navigation and react-router into sub-components.
     ```sh
     npm install react-router-dom
     npm install react-bootstrap bootstrap
+    npm add react-router-dom@6
+
     ```
 
 ---

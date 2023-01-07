@@ -2,6 +2,7 @@ import React from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 
 function HomeCarousel() {
+    console.log("## rendering HomeCarousell...")
       return (
         <Carousel>
             <Carousel.Item>
@@ -46,7 +47,8 @@ function HomeCarousel() {
   
 const Home = () => ( 
     <div>
-        <h1>FSG: Home component.</h1>
+        <h1>Filecoin Storage Gateway</h1>
+        <h3>Web Admin Console</h3>
         <HomeCarousel/>
     </div>
 );

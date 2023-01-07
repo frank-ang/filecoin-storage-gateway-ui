@@ -10,13 +10,21 @@ function Menubar() {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
                     <Nav.Link href="/">Home</Nav.Link>
-                    <NavDropdown title="Features" id="basic-nav-dropdown">
-                        <NavDropdown.Item href="/feature1">Feature 1</NavDropdown.Item>
+                    <NavDropdown title="Data Sets" id="basic-nav-dropdown">
+                        <NavDropdown.Item href="/datasets">Configure Data Sets</NavDropdown.Item>
+                        <NavDropdown.Item href="/prep">Prepare Data Sets</NavDropdown.Item>
+                        <NavDropdown.Item href="/repl">Replicate Data Sets</NavDropdown.Item>
+                        <NavDropdown.Item href="/index">Index Data Sets</NavDropdown.Item>
+                    </NavDropdown>
+                    <NavDropdown title="Retrieve" id="basic-nav-dropdown">
+                        <NavDropdown.Item href="/browse">Data Set Browser</NavDropdown.Item>
+                    </NavDropdown>
+                    <NavDropdown title="Settings" id="basic-nav-dropdown">
+                        <NavDropdown.Item href="/wallet">Wallet</NavDropdown.Item>
                     </NavDropdown>
                     </Nav>
                     <Nav>
-                        <Nav.Item><Navbar.Text>Hello, Your name here.</Navbar.Text></Nav.Item>
-                        <Nav.Item>some item</Nav.Item>
+                        <Nav.Item><Navbar.Text>Welcome, user.</Navbar.Text></Nav.Item>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
