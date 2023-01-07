@@ -46,4 +46,13 @@ make start
 
 Browse to the web server [http://localhost:8081](http://localhost:8081)
 
-> TODO..s
+
+### Test
+
+Generate test data and prepare into cars.
+```
+test/scripts/case1.sh
+```
+
+> Work-in-progress...
+
