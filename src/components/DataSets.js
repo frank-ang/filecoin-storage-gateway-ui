@@ -7,6 +7,18 @@ import Col from 'react-bootstrap/Col'
 import DataSet from './DataSet'
 
 function DataSets (props) {
+    const apiName = 'FortuneApi';
+    const host = 'localhost:7001';
+    const path = '/preparations';
+
+    useEffect(() => { }); // no-op.
+    async function getPreparations(e) {
+        e.preventDefault();
+        console.log('Getting preparations.');
+        const response = await fetch(`${path}`, { method: 'GET' });
+        const myJson = await response.json(); //extract JSON from the http response
+        console.log(myJson);
+    }
 
     return (
         <div>
@@ -17,7 +29,7 @@ function DataSets (props) {
                 <Card.Body>
                     <DataSet/>
                     <DataSet/>
-                    <Button variant="outline-primary" className="float-right">Get Data Sets</Button>
+                    <Button variant="outline-primary" className="float-right" onClick={getPreparations}>Get Preparations</Button>
 
                 </Card.Body>
 
