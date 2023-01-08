@@ -13,6 +13,8 @@ start: singularity_start www_start
 stop: www_stop singularity_stop
 	@echo "stopping react..."
 	@pkill -f 'node.*react-scripts start' || true
+	@pkill -f 'node.*start.js' || true
+
 
 singularity_start:
 	@singularity prep list >> /dev/null 2>&1 && echo "Singularity already started" && exit 0 || echo "Singularity not started."
