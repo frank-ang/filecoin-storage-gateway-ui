@@ -44,8 +44,15 @@ start services.
 make start
 ```
 
-Browse to the web server [http://localhost:8081](http://localhost:8081)
+Browse to main HTTP gateway port.
 
+On MacOS, once NPM starts, your browser should auto-open to localhost:3000 by default. 
+However, in order to have API calls work (and avoid cross-origin resource sharing CORS browser errors) browse to the Nginx reverse proxy instead as the main HTTP gateway: [http://localhost:8081](http://localhost:8081)
+
+Nginx is the front end gateway (port 8081) hosting backends: 
+* Node ReactJS UX (port 3000), 
+* Singularity preparations API,
+* ... etc APIs, Boost APIs. 
 
 ### Test
 

@@ -12,7 +12,7 @@ function DataSets (props) {
     useEffect(() => { }); // no-op.
 
     const [data, setData] = useState([]);
-    const [activeRow, setActiveRow] = useState(0);
+    const [activeRow, setActiveRow] = useState(-1);
 
     function getPreparations(e) {
         e.preventDefault();
@@ -29,13 +29,11 @@ function DataSets (props) {
     }
 
     function rowSelected(e, rowId) {
-        console.log(`setActiveRow called: ${e}, ${rowId}`);
-        e.class="active";
+        console.log(`rowSelected called: ${e}, ${rowId}`);
+        setActiveRow(rowId);
+        //e.class="active";
         console.log(e.target);
         console.log(e);
-        // console.log('this is:', this); // undefined
-        // this.setState(activeRow = rowId);
-        // console.log(`setActiveRow completed`);
     }
      
     var list = document.getElementsByClassName("Table");
@@ -44,9 +42,8 @@ function DataSets (props) {
     }
 
     function tableSelected(e) {
-        console.log("tableSelected()...")
-        console.log(e.target);
-        console.log(e);
+        // Table handler called before Row handler, So its prior to state change. 
+        // console.log(`Table selected. ... Active Row: ` + activeRow)
     }
 
     return (
@@ -57,7 +54,7 @@ function DataSets (props) {
                 </Card.Header>
                 <Card.Body>
                     <Table striped="columns" bordered hover responsive className="selectableTable">
-                        <thead >
+                        <thead>
                             <tr>
                                 <th>id</th>
                                 <th>name</th>
@@ -65,21 +62,25 @@ function DataSets (props) {
                                 <th>outDir</th>
                                 <th>scanningStatus</th>
                                 <th>progress</th>
+                                <th>active row</th>
                             </tr>
                         </thead>
                         <tbody onClick={tableSelected}>
                         {data.map((prep, index) => (
-                            <tr key={index} onClick={e => setActiveRow(index)} >
-                                <td>{prep.id}</td>
-                                <td>{prep.name}</td>
-                                <td>{prep.path}</td>
-                                <td>{prep.outDir}</td>
-                                <td>{prep.scanningStatus}</td>
-                                <td><ProgressBar animated now={60} /></td>
+                            <tr key={index} onClick={(e) => {
+                                    rowSelected(e, index)
+                                }}
+                                >
+                                <td className={index==activeRow ? 'selected' : '' }>{prep.id} | {index}</td>
+                                <td className={index==activeRow ? 'selected' : '' }>{prep.name}</td>
+                                <td className={index==activeRow ? 'selected' : '' }>{prep.path}</td>
+                                <td className={index==activeRow ? 'selected' : '' }>{prep.outDir}</td>
+                                <td className={index==activeRow ? 'selected' : '' }>{prep.scanningStatus}</td>
+                                <td className={index==activeRow ? 'selected' : '' }><ProgressBar animated now={60} /></td>
+                                <td className={index==activeRow ? 'selected' : '' }>Active Row: {activeRow}</td>
                             </tr>
                         ))}
                         </tbody>
-                        Active Row: {activeRow}
                     </Table>
                     <Button variant="outline-primary" className="float-right" onClick={getPreparations}>Get Preparations</Button>
                 </Card.Body>

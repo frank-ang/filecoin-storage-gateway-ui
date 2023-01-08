@@ -62,18 +62,34 @@ table.selectableTable td {
   border-color: #999999;
 }
 
-table.selectableTable tr:active td:active {
-  background:blue;
+table.selectableTable tr {
+  background:cyan;
   border-width: 1px;
   padding: 8px;
   border-style: solid;
   border-color: #999999;
 }
 
-.activeRow {
-  background:blue;
+table.selectableTable tr:active {
+  background:red;
+  border-width: 3px;
+  padding: 8px;
+  border-style: solid;
+  border-color:purple;
+}
+
+table.selectableTable td:active {
+  background:orange;
   border-width: 1px;
   padding: 8px;
   border-style: solid;
   border-color: #999999;
+}
+
+table.selectableTable .selected {
+  border-width: 3px;
+  padding: 8px;
+  border-style: solid;
+  border-color: grey;
+  background:#72d9f3;
 }
