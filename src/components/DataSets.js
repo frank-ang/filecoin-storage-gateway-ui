@@ -3,21 +3,21 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Table from 'react-bootstrap/Table'
 import ProgressBar from 'react-bootstrap/ProgressBar';
+import Preparation from './Preparation';
 
 function DataSets (props) {
-    const apiName = 'FortuneApi';
-    const host = 'localhost:7001';
-    const path = '/preparations';
+    const apiPath = '/preparations';
 
     useEffect(() => { }); // no-op.
 
     const [data, setData] = useState([]);
     const [activeRow, setActiveRow] = useState(-1);
+    const [prepId, setPrepId] = useState('');
 
     function getPreparations(e) {
         e.preventDefault();
         console.log('Getting preparations.');
-        fetch(`${path}`, { method: 'GET' })
+        fetch(`${apiPath}`, { method: 'GET' })
             .then(function(response) {
                 console.log(response);
                 return response.json();
@@ -28,28 +28,23 @@ function DataSets (props) {
             });
     }
 
-    function rowSelected(e, rowId) {
+    function rowSelected(e, rowId, prepIdText) {
         console.log(`rowSelected called: ${e}, ${rowId}`);
         setActiveRow(rowId);
+        setPrepId(prepIdText);
         //e.class="active";
         console.log(e.target);
         console.log(e);
     }
-     
-    var list = document.getElementsByClassName("Table");
-    for (var item of list) {
-        console.log(item)
-    }
-
-    function tableSelected(e) {
-        // Table handler called before Row handler, So its prior to state change. 
-        // console.log(`Table selected. ... Active Row: ` + activeRow)
-    }
 
     return (
         <div>
-            <Card>
-                <Card.Header>
+            <Card style={{ width: '100%' }}>
+                <Card.Header style={{
+                    display: 'flex',
+                    // alignItems: 'left',
+                    justifyContent: 'left',
+                }}>
                     Data Sets
                 </Card.Header>
                 <Card.Body>
@@ -65,10 +60,10 @@ function DataSets (props) {
                                 <th>active row</th>
                             </tr>
                         </thead>
-                        <tbody onClick={tableSelected}>
+                        <tbody>
                         {data.map((prep, index) => (
                             <tr key={index} onClick={(e) => {
-                                    rowSelected(e, index)
+                                    rowSelected(e, index, prep.id)
                                 }}
                                 >
                                 <td className={index==activeRow ? 'selected' : '' }>{prep.id} | {index}</td>
@@ -82,13 +77,18 @@ function DataSets (props) {
                         ))}
                         </tbody>
                     </Table>
-                    <Button variant="outline-primary" className="float-right" onClick={getPreparations}>Get Preparations</Button>
+                    <div style={{
+                        display: 'flex',
+                        alignItems: 'right',
+                        justifyContent: 'right',
+                        }}>
+                            PrepId: {prepId}
+                        <Button variant="outline-primary" className="float-right" onClick={getPreparations}>Reload</Button>
+                    </div>
                 </Card.Body>
-
-                <Card.Footer className="text-muted">Card footer here </Card.Footer>
             </Card>
+            <Preparation/>
             <textarea rows="10" cols="100" value={JSON.stringify(data, undefined, 2)} onChange={(e) => true}> </textarea>
-
         </div>
     )
 }
