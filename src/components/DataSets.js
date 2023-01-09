@@ -6,35 +6,53 @@ import ProgressBar from 'react-bootstrap/ProgressBar';
 import Preparation from './Preparation';
 
 function DataSets (props) {
-    const apiPath = '/preparations';
+    const PREPARATIONS_LIST_API_PATH = '/preparations';
+    const PREPARATION_API_PATH = '/preparation';
 
     useEffect(() => { }); // no-op.
 
-    const [data, setData] = useState([]);
+    const [preparationsList, setPreparationsList] = useState([]);
+    const [preparation, setPreparation] = useState([]);
     const [activeRow, setActiveRow] = useState(-1);
     const [prepId, setPrepId] = useState('');
 
-    function getPreparations(e) {
+    console.log(`DataSets.preparation: ${preparation}`)
+
+    function getPrepId() {
+        return prepId
+    }
+    function queryPreparationsList(e) {
         e.preventDefault();
         console.log('Getting preparations.');
-        fetch(`${apiPath}`, { method: 'GET' })
+        fetch(`${PREPARATIONS_LIST_API_PATH}`, { method: 'GET' })
             .then(function(response) {
                 console.log(response);
                 return response.json();
             })
             .then(function(myJson) {
                 console.log(myJson);
-                setData(myJson);
+                setPreparationsList(myJson);
             });
     }
 
     function rowSelected(e, rowId, prepIdText) {
-        console.log(`rowSelected called: ${e}, ${rowId}`);
+        console.log(`rowSelected called: ${e}, ${rowId}, ${prepIdText}. Setting state async...`);
         setActiveRow(rowId);
         setPrepId(prepIdText);
-        //e.class="active";
-        console.log(e.target);
-        console.log(e);
+        queryPreparation(prepIdText);
+    }
+
+    function queryPreparation(prepId) {
+        console.log(`queryPreparation: ${prepId}`);
+        fetch(`${PREPARATION_API_PATH}/${prepId}`, { method: 'GET' })
+            .then(function(response) {
+                console.log(response);
+                return response.json();
+            })
+            .then(function(myJson) {
+                console.log(myJson);
+                setPreparation(myJson);
+            });
     }
 
     return (
@@ -42,7 +60,6 @@ function DataSets (props) {
             <Card style={{ width: '100%' }}>
                 <Card.Header style={{
                     display: 'flex',
-                    // alignItems: 'left',
                     justifyContent: 'left',
                 }}>
                     Data Sets
@@ -61,7 +78,7 @@ function DataSets (props) {
                             </tr>
                         </thead>
                         <tbody>
-                        {data.map((prep, index) => (
+                        {preparationsList.map((prep, index) => (
                             <tr key={index} onClick={(e) => {
                                     rowSelected(e, index, prep.id)
                                 }}
@@ -82,13 +99,13 @@ function DataSets (props) {
                         alignItems: 'right',
                         justifyContent: 'right',
                         }}>
-                            PrepId: {prepId}
-                        <Button variant="outline-primary" className="float-right" onClick={getPreparations}>Reload</Button>
+                            PrepId: [ {prepId} ]
+                        <Button variant="outline-primary" className="float-right" onClick={queryPreparationsList}>Reload</Button>
                     </div>
                 </Card.Body>
             </Card>
-            <Preparation/>
-            <textarea rows="10" cols="100" value={JSON.stringify(data, undefined, 2)} onChange={(e) => true}> </textarea>
+            <Preparation data={prepId}/>
+            <textarea rows="10" cols="100" value={JSON.stringify(preparationsList, undefined, 2)} onChange={(e) => true}> </textarea>
         </div>
     )
 }

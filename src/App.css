@@ -90,6 +90,6 @@ table.selectableTable .selected {
   border-width: 3px;
   padding: 8px;
   border-style: solid;
-  border-color: grey;
+  border-color: #0090ff;
   background:#72d9f3;
 }
