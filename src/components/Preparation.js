@@ -1,20 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
 import Placeholder from 'react-bootstrap/Placeholder';
 import Button from 'react-bootstrap/Button';
 
-function Preparation() {
-    useEffect(() => { }); // no-op.
-    const [data, setData] = useState('');
+function Preparation({data}) {
     console.log(`Preparation: ${data}`);
 
-    function getData() {
-        console.log(`Preparation getData: ${data}`);
-        return data;
-    }
     useEffect(() => {
         document.title = `useEffect HAPPENS! Data: ${data}.`;
-        getData();
+        console.log(`Preparation. useEffect() Data: ${data}.`);
       }, [data]);
 
     if (false) {
@@ -41,8 +35,6 @@ function Preparation() {
                         <Placeholder xs={7} /> <Placeholder xs={4} /> <Placeholder xs={4} />{' '}
                         <Placeholder xs={6} /> <Placeholder xs={8} />
                     </Placeholder>
-                    <Button variant="outline-primary" className="float-right" onClick={getData}>Reload</Button>
-
                 </Card.Body>
             </Card>
             </div>
