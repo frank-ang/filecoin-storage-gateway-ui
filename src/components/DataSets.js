@@ -4,8 +4,8 @@ import Card from 'react-bootstrap/Card';
 import Table from 'react-bootstrap/Table'
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import Preparation from './Preparation';
-
-function DataSets (props) {
+ 
+function DataSets () {
     const PREPARATIONS_LIST_API_PATH = '/preparations';
     const PREPARATION_API_PATH = '/preparation';
 
@@ -16,11 +16,21 @@ function DataSets (props) {
     const [activeRow, setActiveRow] = useState(-1);
     const [prepId, setPrepId] = useState('');
 
-    console.log(`DataSets.preparation: ${preparation}`)
-
-    function getPrepId() {
-        return prepId
+    function callMe() {
+        console.log("callMe!");
+        console.log (`preparation: ${JSON.stringify(preparation)}`)
+        return { prepId: 'PREPID HERE', name: 'NAME HERE' };
     }
+
+    console.log(`DataSets.preparation: ${JSON.stringify(preparation)}); preparation.id: ${preparation ? preparation.id : 'UNDEFINED'}`)
+
+    function rowSelected(e, rowId, prepIdText) {
+        console.log(`rowSelected called: ${e}, ${rowId}, ${prepIdText}. Setting state async...`);
+        setActiveRow(rowId);
+        setPrepId(prepIdText);
+        queryPreparation(prepIdText);
+    }
+
     function queryPreparationsList(e) {
         e.preventDefault();
         console.log('Getting preparations.');
@@ -35,13 +45,6 @@ function DataSets (props) {
             });
     }
 
-    function rowSelected(e, rowId, prepIdText) {
-        console.log(`rowSelected called: ${e}, ${rowId}, ${prepIdText}. Setting state async...`);
-        setActiveRow(rowId);
-        setPrepId(prepIdText);
-        queryPreparation(prepIdText);
-    }
-
     function queryPreparation(prepId) {
         console.log(`queryPreparation: ${prepId}`);
         fetch(`${PREPARATION_API_PATH}/${prepId}`, { method: 'GET' })
@@ -51,7 +54,15 @@ function DataSets (props) {
             })
             .then(function(myJson) {
                 console.log(myJson);
-                setPreparation(myJson);
+                console.log(`queryPreparation returned: ${JSON.stringify(myJson)}`);
+                console.log(`queryPreparation returned id: ${myJson.id}`);
+
+                const myPreparation = [
+                    { prepId: `${myJson.id}`, 
+                      name: "QUERIED!", },
+                ];
+                console.log(`Setting Preparation to: ${JSON.stringify(myJson)}`);
+                setPreparation(myJson); //myPreparation); // (myJson); // avoid saving the nested data struct.
             });
     }
 
@@ -99,12 +110,14 @@ function DataSets (props) {
                         alignItems: 'right',
                         justifyContent: 'right',
                         }}>
-                            PrepId: [ {prepId} ]
+                            PrepId: [ {prepId} ], 
+                            Preparation ID: [ {preparation == undefined ? "undefined" : `preparation.prepId defined ${preparation.prepId}`} ]
+
                         <Button variant="outline-primary" className="float-right" onClick={queryPreparationsList}>Reload</Button>
                     </div>
                 </Card.Body>
             </Card>
-            <Preparation data={prepId}/>
+            <Preparation prepId={[preparation]} preparation={callMe}/>
             <textarea rows="10" cols="100" value={JSON.stringify(preparationsList, undefined, 2)} onChange={(e) => true}> </textarea>
         </div>
     )

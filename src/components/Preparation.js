@@ -3,18 +3,17 @@ import Card from 'react-bootstrap/Card';
 import Placeholder from 'react-bootstrap/Placeholder';
 import Button from 'react-bootstrap/Button';
 
-function Preparation({data}) {
-    console.log(`Preparation: ${data}`);
+function Preparation({prepId}, {preparation}) {
+    console.log(`Preparation. Prep ID: ${JSON.stringify(prepId)} ; Preparation:  $ { preparation}.`);
 
     useEffect(() => {
-        document.title = `useEffect HAPPENS! Data: ${data}.`;
-        console.log(`Preparation. useEffect() Data: ${data}.`);
-      }, [data]);
+        console.log(`Preparation. USE EFFECT!! Prep ID: ${prepId} ; Preparation: $ { JSON.stringify(preparation)}`);
+      }, [prepId, preparation]);
 
     if (false) {
         return (
         <div>
-                <p> data is: {data} </p>
+                <p> prepId is: {prepId} </p>
         </div>
         );
     } else {
@@ -27,7 +26,8 @@ function Preparation({data}) {
                     justifyContent: 'left',
                 }}>Data Set: Preparation</Card.Header>
                 <Card.Body>
-                data is: [{data}]
+                Prep Id: [{JSON.stringify(prepId)}] , Preparation: [ {preparation ? "JSON.stringify(preparation)" : "UNDEFINED"} ]
+
                     <Placeholder as={Card.Title} animation="glow">
                         <Placeholder xs={6} />
                     </Placeholder>
