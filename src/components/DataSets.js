@@ -9,25 +9,22 @@ function DataSets () {
     const PREPARATIONS_LIST_API_PATH = '/preparations';
     const PREPARATION_API_PATH = '/preparation';
 
-    useEffect(() => { }); // no-op.
-
     const [preparationsList, setPreparationsList] = useState([]);
     const [preparation, setPreparation] = useState([]);
     const [activeRow, setActiveRow] = useState(-1);
     const [prepId, setPrepId] = useState('');
 
-    console.log(`DataSets.preparation: ${JSON.stringify(preparation)}); preparation.id: ${preparation ? preparation.id : 'UNDEFINED'}`)
+    useEffect(() => { });
 
     function rowSelected(e, rowId, prepIdText) {
-        console.log(`rowSelected called: ${e}, ${rowId}, ${prepIdText}. Setting state async...`);
         setActiveRow(rowId);
         setPrepId(prepIdText);
         queryPreparation(prepIdText);
     }
 
-    function queryPreparationsList(e) {
-        e.preventDefault();
-        console.log('Getting preparations.');
+    function queryPreparationsList() {
+        // e.preventDefault();
+        console.log('Querying for preparations list.');
         fetch(`${PREPARATIONS_LIST_API_PATH}`, { method: 'GET' })
             .then(function(response) {
                 console.log(response);
@@ -40,25 +37,24 @@ function DataSets () {
     }
 
     function queryPreparation(prepId) {
-        console.log(`queryPreparation: ${prepId}`);
+        console.log(`Querying for preparation: ${prepId}`);
         fetch(`${PREPARATION_API_PATH}/${prepId}`, { method: 'GET' })
             .then(function(response) {
+                console.log("Got API response.")
                 console.log(response);
                 return response.json();
             })
             .then(function(myJson) {
+                console.log("JSON response.")
                 console.log(myJson);
-                console.log(`queryPreparation returned: ${JSON.stringify(myJson)}`);
-                console.log(`queryPreparation returned id: ${myJson.id}`);
-
-                const myPreparation = [
-                    { prepId: `${myJson.id}`, 
-                      name: "QUERIED!", },
-                ];
-                console.log(`Setting Preparation to: ${JSON.stringify(myJson)}`);
-                setPreparation(myJson); //myPreparation); // (myJson); // avoid saving the nested data struct.
+                setPreparation(myJson);
             });
-    }
+    };
+
+    useEffect(() => {
+        console.log("useEffect...");
+        queryPreparationsList();
+    }, []); // should run once only.
 
     return (
         <div>
@@ -79,7 +75,6 @@ function DataSets () {
                                 <th>outDir</th>
                                 <th>scanningStatus</th>
                                 <th>progress</th>
-                                <th>active row</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -94,7 +89,6 @@ function DataSets () {
                                 <td className={index==activeRow ? 'selected' : '' }>{prep.outDir}</td>
                                 <td className={index==activeRow ? 'selected' : '' }>{prep.scanningStatus}</td>
                                 <td className={index==activeRow ? 'selected' : '' }><ProgressBar animated now={60} /></td>
-                                <td className={index==activeRow ? 'selected' : '' }>Active Row: {activeRow}</td>
                             </tr>
                         ))}
                         </tbody>

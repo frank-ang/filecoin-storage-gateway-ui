@@ -13,9 +13,9 @@ function Preparation({preparation}) {
         console.log(`Preparation. USE EFFECT!!: ${JSON.stringify(preparation)}`);
       }, [preparation]);
 
+    console.log(`Preparation DEBUG. Preparation: ${JSON.stringify(preparation)}`); // possibly null.
 
-
-    function preparationAttribute(keyName, label) {
+    function preparationAttributeRow(keyName, label) {
         return (
             <Row style={{ textAlign: "left" }}>
                 <Col xs lg="4">{label || keyName}</Col>
@@ -25,9 +25,27 @@ function Preparation({preparation}) {
     }
 
     function propVal(obj, keyName) {
+        console.log(`propVal( ${JSON.stringify(obj)}, ${JSON.stringify(keyName)})`)
         return obj && JSON.stringify(obj[keyName]) || "";
     }
 
+    function GenerationRequestList(generationRequests) {
+        if (generationRequests && generationRequests.map) {
+            return (
+                generationRequests.map((genRq, index) => (
+                    <Row style={{ textAlign: "left" }}>
+                        <Col xs lg="4">Generation Request</Col>
+                        <Col xs lg="auto">{JSON.stringify(genRq)}</Col>
+                    </Row>
+                ))
+            )
+        } else {
+            return (
+                <text>No data in Generation Request List.</text>
+            );
+        }
+    }
+      
     return(
         <div>
             <Card style={{ width: '100%' }}>
@@ -38,33 +56,32 @@ function Preparation({preparation}) {
                 }}>Data Set Preparation</Card.Header>
                 <Card.Body>
                     <Container fluid="true">
-                        {preparationAttribute("id", "ID")}
-                        {preparationAttribute("name", "Name")}
-                        {preparationAttribute("path", )}
-                        {preparationAttribute("minSize", )}
-                        {preparationAttribute("maxSize", )}
-                        {preparationAttribute("outDir", )}
-                        {preparationAttribute("scanningStatus", )}
-
-                        {preparationAttribute("scanned", )}
-                        {preparationAttribute("generationTotal", )}
-                        {preparationAttribute("generationActive", )}
-                        {preparationAttribute("generationPaused", )}
-                        {preparationAttribute("generationError", )}
+                        {preparationAttributeRow("id", "ID")}
+                        {preparationAttributeRow("name", "Name")}
+                        {preparationAttributeRow("path", )}
+                        {preparationAttributeRow("minSize", )}
+                        {preparationAttributeRow("maxSize", )}
+                        {preparationAttributeRow("outDir", )}
+                        {preparationAttributeRow("scanningStatus", )}
+                        {preparationAttributeRow("scanned", )}
                     </Container>
 
 
                     <Container fluid="true">
                         <Accordion>
                         <Accordion.Item eventKey="0">
-                            <Accordion.Header>Accordion Item #1</Accordion.Header>
+                            <Accordion.Header>Generation Status</Accordion.Header>
                             <Accordion.Body>
+                                {preparationAttributeRow("generationTotal", )}
+                                {preparationAttributeRow("generationActive", )}
+                                {preparationAttributeRow("generationPaused", )}
+                                {preparationAttributeRow("generationError", )}
+                                <hr/>
+                                {console.log(`### Dump genrequests: ${JSON.stringify(preparation.generationRequests) || true}`)}
+                                <GenerationRequestList generationRequests={preparation.generationRequests || true} />
 
-                            </Accordion.Body>
-                        </Accordion.Item>
-                        <Accordion.Item eventKey="1">
-                            <Accordion.Header>Accordion Item #2</Accordion.Header>
-                            <Accordion.Body>
+                                <hr/>
+                                {preparationAttributeRow("generationRequests", )}
 
                             </Accordion.Body>
                         </Accordion.Item>
