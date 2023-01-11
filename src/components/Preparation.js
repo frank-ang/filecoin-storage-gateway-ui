@@ -13,8 +13,6 @@ function Preparation({preparation}) {
         console.log(`Preparation. USE EFFECT!!: ${JSON.stringify(preparation)}`);
       }, [preparation]);
 
-    console.log(`Preparation DEBUG. Preparation: ${JSON.stringify(preparation)}`); // possibly null.
-
     function preparationAttributeRow(keyName, label) {
         return (
             <Row style={{ textAlign: "left" }}>
@@ -30,9 +28,14 @@ function Preparation({preparation}) {
     }
 
     function GenerationRequestList(generationRequests) {
-        if (generationRequests && generationRequests.map) {
+        console.log(`GenerationRequestList(${JSON.stringify(generationRequests[0])})`);
+        // console.log(`GenerationRequestList(${JSON.stringify(generationRequests)})`);
+
+        if (generationRequests && generationRequests[0] && generationRequests[0].id) {
+            var genRqArray = generationRequests[0].generationRequests
+            console.log("rendering generationRequests !!");
             return (
-                generationRequests.map((genRq, index) => (
+                genRqArray.map((genRq, index) => (
                     <Row style={{ textAlign: "left" }}>
                         <Col xs lg="4">Generation Request</Col>
                         <Col xs lg="auto">{JSON.stringify(genRq)}</Col>
@@ -40,8 +43,12 @@ function Preparation({preparation}) {
                 ))
             )
         } else {
+            console.log(`No data1. generationRequests: ${JSON.stringify(generationRequests)}`);
+            // hacking...  // TODO::: UNDEFINED ???
+            console.log(`No data2. generationRequests: ${JSON.stringify(generationRequests[0]) || "ERROR"}`);
+            console.log(generationRequests[0]);
             return (
-                <text>No data in Generation Request List.</text>
+                <Card.Text>No data in Generation Request List.</Card.Text>
             );
         }
     }
@@ -59,11 +66,11 @@ function Preparation({preparation}) {
                         {preparationAttributeRow("id", "ID")}
                         {preparationAttributeRow("name", "Name")}
                         {preparationAttributeRow("path", )}
-                        {preparationAttributeRow("minSize", )}
-                        {preparationAttributeRow("maxSize", )}
-                        {preparationAttributeRow("outDir", )}
-                        {preparationAttributeRow("scanningStatus", )}
-                        {preparationAttributeRow("scanned", )}
+                        {preparationAttributeRow("minSize", "Min Size")}
+                        {preparationAttributeRow("maxSize", "Max Size")}
+                        {preparationAttributeRow("outDir", "Output Directory")}
+                        {preparationAttributeRow("scanningStatus", "Scanning Status")}
+                        {preparationAttributeRow("scanned", "Scanned")}
                     </Container>
 
 
@@ -77,11 +84,11 @@ function Preparation({preparation}) {
                                 {preparationAttributeRow("generationPaused", )}
                                 {preparationAttributeRow("generationError", )}
                                 <hr/>
-                                {console.log(`### Dump genrequests: ${JSON.stringify(preparation.generationRequests) || true}`)}
-                                <GenerationRequestList generationRequests={preparation.generationRequests || true} />
+                                {console.log(`### Dump genrequests: ${JSON.stringify(preparation.generationRequests) || "Unable to Stringify!"}`)}
 
+                                //{console.log(`### Dump genrequests: ${JSON.stringify(preparation.generationRequests) || "Unable to Stringify!"}`)}
+                               <GenerationRequestList generationRequests={preparation.generationRequests} />
                                 <hr/>
-                                {preparationAttributeRow("generationRequests", )}
 
                             </Accordion.Body>
                         </Accordion.Item>
@@ -99,5 +106,6 @@ function Preparation({preparation}) {
     );
 
 }
+// {preparationAttributeRow("generationRequests", )}
 
 export default Preparation;
