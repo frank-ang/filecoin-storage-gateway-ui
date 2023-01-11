@@ -16,12 +16,6 @@ function DataSets () {
     const [activeRow, setActiveRow] = useState(-1);
     const [prepId, setPrepId] = useState('');
 
-    function callMe() {
-        console.log("callMe!");
-        console.log (`preparation: ${JSON.stringify(preparation)}`)
-        return { prepId: 'PREPID HERE', name: 'NAME HERE' };
-    }
-
     console.log(`DataSets.preparation: ${JSON.stringify(preparation)}); preparation.id: ${preparation ? preparation.id : 'UNDEFINED'}`)
 
     function rowSelected(e, rowId, prepIdText) {
@@ -110,15 +104,13 @@ function DataSets () {
                         alignItems: 'right',
                         justifyContent: 'right',
                         }}>
-                            PrepId: [ {prepId} ], 
-                            Preparation ID: [ {preparation == undefined ? "undefined" : `preparation.prepId defined ${preparation.prepId}`} ]
-
                         <Button variant="outline-primary" className="float-right" onClick={queryPreparationsList}>Reload</Button>
                     </div>
                 </Card.Body>
             </Card>
-            <Preparation prepId={[preparation]} preparation={callMe}/>
-            <textarea rows="10" cols="100" value={JSON.stringify(preparationsList, undefined, 2)} onChange={(e) => true}> </textarea>
+            {prepId && (
+                <Preparation preparation={preparation}/>
+            )}
         </div>
     )
 }
