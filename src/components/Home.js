@@ -8,8 +8,7 @@ function HomeCarousel() {
             <Carousel.Item>
                 <img
                 className="d-block w-100"
-                src="https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg"
-                // src="https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                src="https://thumbs.dreamstime.com/z/female-datacenter-manager-colleague-server-room-57605256.jpg"
                 alt="First slide"
                 />
                 <Carousel.Caption>
@@ -22,7 +21,6 @@ function HomeCarousel() {
                 <img
                 className="d-block w-100"
                   src="https://images.pexels.com/photos/1181316/pexels-photo-1181316.jpeg"
-               // src="https://images.pexels.com/photos/4226262/pexels-photo-4226262.jpeg?auto=compress&cs=tinysrgb&h=853&w=1280"
                 alt=" slide"
                 />
                 <Carousel.Caption>
@@ -34,7 +32,6 @@ function HomeCarousel() {
             <Carousel.Item>
                 <img
                 className="d-block w-100"
-                 // src="https://images.pexels.com/photos/4062563/pexels-photo-4062563.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
                  src="https://media.istockphoto.com/id/514504740/photo/server-room-interior-in-data-center.jpg?s=1024x1024&w=is&k=20&c=cm23KUhK2bzf1sNW6GYqdNkLNeXTiS3q9FxdfXTPF9k="
                  alt=" slide"
                 />
@@ -55,4 +52,5 @@ const Home = () => (
         <HomeCarousel/>
     </div>
 );
+
 export default Home;
