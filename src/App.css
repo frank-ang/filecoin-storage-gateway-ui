@@ -36,3 +36,60 @@
     transform: rotate(360deg);
   }
 }
+
+/* Filecoin Storage Gateway styling */
+table.selectableTable {
+  font-family: verdana,arial,sans-serif;
+  font-size: 15px;
+  color: #333333;
+  border-width: 1px;
+  border-color: #999999;
+  border-collapse: collapse;
+  width:100%;
+}
+table.selectableTable th {
+  background:#b5cfd2;
+  border-width: 1px;
+  padding: 12px;
+  border-style: solid;
+  border-color: #999999;
+}
+table.selectableTable td {
+  background:#dcddc0;
+  border-width: 1px;
+  padding: 8px;
+  border-style: solid;
+  border-color: #999999;
+}
+
+table.selectableTable tr {
+  background:cyan;
+  border-width: 1px;
+  padding: 8px;
+  border-style: solid;
+  border-color: #999999;
+}
+
+table.selectableTable tr:active {
+  background:red;
+  border-width: 3px;
+  padding: 8px;
+  border-style: solid;
+  border-color:purple;
+}
+
+table.selectableTable td:active {
+  background:orange;
+  border-width: 1px;
+  padding: 8px;
+  border-style: solid;
+  border-color: #999999;
+}
+
+table.selectableTable .selected {
+  border-width: 3px;
+  padding: 8px;
+  border-style: solid;
+  border-color: #0090ff;
+  background:#72d9f3;
+}
