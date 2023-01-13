@@ -6,7 +6,6 @@ import Col from 'react-bootstrap/Col';
 function GenerationRequest({generationRequest}) {
 
     useEffect(() => {
-        // console.log(`GenerationRequest. USE EFFECT!! :${JSON.stringify(generationRequest)}` );
       }, [generationRequest]);
 
     return (

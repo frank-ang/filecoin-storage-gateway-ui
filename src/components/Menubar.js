@@ -25,14 +25,14 @@ function Menubar() {
                         <Nav.Link href="/DataSetBrowser">DataSet Browser</Nav.Link> &nbsp;
                         <NavDropdown title="Feature Backlog 🛠️🚧👷🏽" id="basic-nav-dropdown">
                             <NavDropdown.Item href="/datasets">Configure DataSets</NavDropdown.Item>
-                            <NavDropdown.Item href="/prep">Preparation Jobs</NavDropdown.Item>
-                            <NavDropdown.Item href="/repl">Replication Jobs</NavDropdown.Item>
-                            <NavDropdown.Item href="/repl">SP Catalog</NavDropdown.Item>
-                            <NavDropdown.Item href="/index">Retrieval Indexer</NavDropdown.Item>
-                            <NavDropdown.Item href="/browse">Retrieval Browser</NavDropdown.Item>
-                            <NavDropdown.Item href="/settings">Fund Wallet</NavDropdown.Item>
-                            <NavDropdown.Item href="/settings">Backup/Restore Wallet</NavDropdown.Item>
-                            <NavDropdown.Item href="/settings">Backup/Restore Gateway</NavDropdown.Item>
+                            <NavDropdown.Item href="/">Preparation Jobs</NavDropdown.Item>
+                            <NavDropdown.Item href="/">Replication Jobs</NavDropdown.Item>
+                            <NavDropdown.Item href="/">SP Catalog</NavDropdown.Item>
+                            <NavDropdown.Item href="/">Retrieval Indexer</NavDropdown.Item>
+                            <NavDropdown.Item href="/">Retrieval Browser</NavDropdown.Item>
+                            <NavDropdown.Item href="/">Fund Wallet!</NavDropdown.Item>
+                            <NavDropdown.Item href="/">Backup/Restore Wallet</NavDropdown.Item>
+                            <NavDropdown.Item href="/">Backup/Restore Gateway</NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
                     <Nav className="justify-content-end">

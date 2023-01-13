@@ -108,8 +108,11 @@ function DataSets () {
                         alignItems: 'right',
                         justifyContent: 'right',
                         }}>
-                        <Button variant="outline-primary" className="float-right" onClick={queryPreparationsList}>Refresh Preparations List</Button>
-                        <Button variant="outline-primary" className="float-right" onClick={configureReplication}>Configure Replication</Button>
+                        <Button variant="outline-primary" className="float-right">Add</Button>
+                        <Button variant="outline-primary" className="float-right">Remove</Button>
+
+                        <Button variant="outline-primary" className="float-right" onClick={queryPreparationsList}>Refresh</Button>
+                        <Button variant="outline-primary" className="float-right" onClick={configureReplication}>Configure</Button>
 
                     </div>
                 </Card.Body>
