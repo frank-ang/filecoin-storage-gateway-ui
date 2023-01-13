@@ -10,7 +10,7 @@ import Table from 'react-bootstrap/Table'
 function Preparation({preparation}) {
 
     useEffect(() => {
-        console.log(`Preparation. USE EFFECT!!`);
+        // console.log(`Preparation. USE EFFECT!!`);
       }, [preparation]);
 
     function preparationAttributeRow(keyName, label) {
@@ -48,7 +48,7 @@ function Preparation({preparation}) {
 
 
                     <Container fluid="true">
-                        <Accordion>
+                        <Accordion className="m-2">
                             <Accordion.Item eventKey="0">
                                 <Accordion.Header>
                                     Generation Requests ( {preparation && preparation.generationTotal && JSON.stringify(preparation.generationTotal)} )
@@ -58,10 +58,6 @@ function Preparation({preparation}) {
                                     {preparationAttributeRow("generationActive", )}
                                     {preparationAttributeRow("generationPaused", )}
                                     {preparationAttributeRow("generationError", )}
-                                    <hr/>
-                                    {console.log(`### Dump generationRequests: ${ (preparation && preparation.generationRequests) ?
-                                        JSON.stringify(preparation.generationRequests) :  "Unable to Stringify!"}`)}
-
                                     <Table striped="columns" bordered hover responsive className="selectableTable">
                                         <thead>
                                             <tr>

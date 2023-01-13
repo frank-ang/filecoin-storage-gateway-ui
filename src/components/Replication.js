@@ -6,7 +6,6 @@ import Table from 'react-bootstrap/Table'
 function Replication({datasetId}) {
 
     useEffect(() => {
-        console.log(`Replication. USE EFFECT!!`);
       }, [datasetId]);
 
     return(

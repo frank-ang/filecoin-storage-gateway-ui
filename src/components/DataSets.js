@@ -115,12 +115,12 @@ function DataSets () {
                 </Card.Body>
             </Card>
             </Col></Row>
-            <Row><Col>
+            <Row className="m-2"><Col>
                 {prepId && (
                     <Preparation preparation={preparation}/>
                 )}
             </Col></Row>
-            <Row><Col>
+            <Row className="m-2"><Col>
                 {prepId && (
                     <Replication datasetId={prepId}/>
                 )}
