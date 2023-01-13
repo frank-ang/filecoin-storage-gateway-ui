@@ -53,8 +53,6 @@ start services.
 make start
 ```
 
-Browse to main HTTP gateway port.
-
 On MacOS, once NPM starts, your browser should auto-open to localhost:3000 by default. 
 However, in order to have API calls work (and avoid cross-origin resource sharing CORS browser errors) browse to the Nginx reverse proxy instead as the main HTTP gateway: [http://localhost:8081](http://localhost:8081)
 

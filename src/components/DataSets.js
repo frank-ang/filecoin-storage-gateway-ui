@@ -4,7 +4,11 @@ import Card from 'react-bootstrap/Card';
 import Table from 'react-bootstrap/Table'
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import Preparation from './Preparation';
- 
+import Replication from './Replication';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
 function DataSets () {
     const PREPARATIONS_LIST_API_PATH = '/preparations';
     const PREPARATION_API_PATH = '/preparation';
@@ -23,7 +27,6 @@ function DataSets () {
     }
 
     function queryPreparationsList() {
-        // e.preventDefault();
         console.log('Querying for preparations list.');
         fetch(`${PREPARATIONS_LIST_API_PATH}`, { method: 'GET' })
             .then(function(response) {
@@ -51,6 +54,10 @@ function DataSets () {
             });
     };
 
+    function configureReplication() {
+        console.log(`Configuring replication for prepID: ${prepId}`);
+    }
+
     useEffect(() => {
         console.log("useEffect...");
         queryPreparationsList();
@@ -58,6 +65,9 @@ function DataSets () {
 
     return (
         <div>
+        <Container>
+        <Row className="m-2"><Col>
+
             <Card style={{ width: '100%' }}>
                 <Card.Header style={{
                     display: 'flex',
@@ -98,13 +108,25 @@ function DataSets () {
                         alignItems: 'right',
                         justifyContent: 'right',
                         }}>
-                        <Button variant="outline-primary" className="float-right" onClick={queryPreparationsList}>Reload</Button>
+                        <Button variant="outline-primary" className="float-right" onClick={queryPreparationsList}>Refresh Preparations List</Button>
+                        <Button variant="outline-primary" className="float-right" onClick={configureReplication}>Configure Replication</Button>
+
                     </div>
                 </Card.Body>
             </Card>
-            {prepId && (
-                <Preparation preparation={preparation}/>
-            )}
+            </Col></Row>
+            <Row><Col>
+                {prepId && (
+                    <Preparation preparation={preparation}/>
+                )}
+            </Col></Row>
+            <Row><Col>
+                {prepId && (
+                    <Replication datasetId={prepId}/>
+                )}
+            </Col>
+        </Row>
+        </Container>
         </div>
     )
 }
