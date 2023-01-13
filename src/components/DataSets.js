@@ -61,7 +61,7 @@ function DataSets () {
     useEffect(() => {
         console.log("useEffect...");
         queryPreparationsList();
-    }, []); // should run once only.
+    }, []); // should run once only?
 
     return (
         <div>
@@ -119,8 +119,7 @@ function DataSets () {
                 {prepId && (
                     <Preparation preparation={preparation}/>
                 )}
-            </Col></Row>
-            <Row className="m-2"><Col>
+            </Col><Col>
                 {prepId && (
                     <Replication datasetId={prepId}/>
                 )}

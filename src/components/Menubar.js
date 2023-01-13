@@ -1,5 +1,5 @@
 import React from 'react';
-import { Nav, NavDropdown, Navbar, Form, FormLabel } from 'react-bootstrap';
+import { Nav, NavDropdown, Navbar, } from 'react-bootstrap';
 
 function Menubar() {
     return (
@@ -20,7 +20,9 @@ function Menubar() {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
                         <Nav.Link href="/">Home</Nav.Link> &nbsp;
-                        <Nav.Link href="/datasets">Data Sets</Nav.Link> &nbsp;
+                        <Nav.Link href="/DataSets">Data Sets</Nav.Link> &nbsp;
+                        <Nav.Link href="/DataSetConfigEditor">DataSet Config Wizard</Nav.Link> &nbsp;
+                        <Nav.Link href="/DataSetBrowser">DataSet Browser</Nav.Link> &nbsp;
                         <NavDropdown title="Feature Backlog 🛠️🚧👷🏽" id="basic-nav-dropdown">
                             <NavDropdown.Item href="/datasets">Configure DataSets</NavDropdown.Item>
                             <NavDropdown.Item href="/prep">Preparation Jobs</NavDropdown.Item>

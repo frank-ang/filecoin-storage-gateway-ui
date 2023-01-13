@@ -10,7 +10,6 @@ import Table from 'react-bootstrap/Table'
 function Preparation({preparation}) {
 
     useEffect(() => {
-        // console.log(`Preparation. USE EFFECT!!`);
       }, [preparation]);
 
     function preparationAttributeRow(keyName, label) {

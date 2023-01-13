@@ -1,23 +1,26 @@
 import React, { useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
-import Container from 'react-bootstrap/Container';
 import Table from 'react-bootstrap/Table'
+import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-function Replication({datasetId}) {
+function DataSetConfigEditor({dataSetConfig}) {
 
     useEffect(() => {
-      }, [datasetId]);
+      }, [dataSetConfig]);
 
     return(
         <div>
+            <Container>
+            <Row className="m-2">
+            <Col>
             <Card style={{ width: '100%' }}>
                 <Card.Header style={{
                     display: 'flex',
                     alignItems: 'left',
                     justifyContent: 'left',
-                }}>Data Set Replication</Card.Header>
+                }}>Data Set Configuration Wizard</Card.Header>
                 <Card.Body>
                     <Container fluid="true">
                         <Table striped="columns" bordered hover responsive className="selectableTable">
@@ -41,9 +44,10 @@ function Replication({datasetId}) {
                     </Container>
                 </Card.Body>
             </Card>
+            </Col></Row></Container>
         </div>
     );
 
 }
 
-export default Replication;
+export default DataSetConfigEditor;
