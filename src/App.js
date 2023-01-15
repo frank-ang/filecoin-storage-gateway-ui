@@ -6,6 +6,7 @@ import Menubar from './components/Menubar'
 import Home from './components/Home'
 import DataSets from './components/DataSets'
 import DataSetConfigEditor from './components/DataSetConfigEditor';
+import SPCatalog from './components/SPCatalog';
 import "./index.css";
 
 import { 
@@ -32,6 +33,7 @@ function App() {
             <Route exact path="/" element={<Home/>} />
             <Route exact path="DataSets" element={<DataSets/>} />
             <Route exact path="DataSetConfigEditor" element={<DataSetConfigEditor/>}/>
+            <Route exact path="SPCatalog" element={<SPCatalog/>} />
           </Routes>
         </Router>
       </Container>

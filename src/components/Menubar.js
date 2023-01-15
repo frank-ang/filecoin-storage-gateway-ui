@@ -20,8 +20,9 @@ function Menubar() {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
                         <Nav.Link href="/">Home</Nav.Link> &nbsp;
-                        <Nav.Link href="/DataSets">Data Sets</Nav.Link> &nbsp;
-                        <Nav.Link href="/DataSetConfigEditor">DataSet Config Wizard</Nav.Link> &nbsp;
+                        <Nav.Link href="/DataSets">DataSets</Nav.Link> &nbsp;
+                        <Nav.Link href="/DataSetConfigEditor">DataSet Configurator</Nav.Link> &nbsp;
+                        <Nav.Link href="/SPCatalog">SP Catalog</Nav.Link> &nbsp;
                         <Nav.Link href="/DataSetBrowser">DataSet Browser</Nav.Link> &nbsp;
                         <NavDropdown title="Feature Backlog 🛠️🚧👷🏽" id="basic-nav-dropdown">
                             <NavDropdown.Item href="/datasets">Configure DataSets</NavDropdown.Item>

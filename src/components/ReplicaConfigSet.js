@@ -3,7 +3,16 @@ import ReplicaConfig from './ReplicaConfig';
 
 function ReplicaConfigSet() {
     const [replicaConfig, setReplicaConfig] = useState([]);
-    const [replicaConfigSet, setReplicaConfigSet] = useState([]);
+    const [replicaConfigSet, setReplicaConfigSet] = useState([
+        {
+            replicaId:'1',
+            size:'100 TiB',
+            storageProvider:'Greater Heat',
+            spid:'t01000',
+            location:'Dallas, Texas, USA',
+            estimatedFees:'USD $235.52',
+        }
+    ]);
 
     useEffect(() => {
         console.log(`ReplicaConfigSet.replicaConfigSet() : ${JSON.stringify(replicaConfigSet)}`)
@@ -12,9 +21,12 @@ function ReplicaConfigSet() {
     const addReplicaConfig = () => {
         console.log(`## ReplicaConfigSet.addReplicaConfig()`)
         const rowsInput={
-            fullName:'new',
-            emailAddress:'new',
-            salary:'new'  
+            replicaId:'new',
+            size:'new size',
+            storageProvider:'new SP',
+            spid:'t01000+',
+            location:'new location',
+            estimatedFees:'new estimated fees',
         }
         setReplicaConfigSet([...replicaConfigSet, rowsInput])
         console.log(`## ReplicaConfigSet.addReplicaConfig() completed`)
@@ -41,9 +53,12 @@ function ReplicaConfigSet() {
                 <table className="table">
                     <thead>
                       <tr>
-                          <th>Full Name</th>
-                          <th>Email Address</th>
-                          <th>Salary</th>
+                          <th>Replica ID</th>
+                          <th>Size</th>
+                          <th>Storage Provider</th>
+                          <th>SP ID</th>
+                          <th>Country</th>
+                          <th>Storage Fees ($USD)</th>
                           <th><button className="btn btn-outline-success" onClick={addReplicaConfig}>&nbsp; + &nbsp;</button></th>
                       </tr>
                     </thead>
@@ -53,13 +68,18 @@ function ReplicaConfigSet() {
                         replicaConfigSet.map((repConf, _index) => (
                             <ReplicaConfig config={repConf} index={_index} /> // deleteTableRows={deleteReplicaConfig} handleChange={handleChange} />
                         ))}
+                        <ReplicaConfig config={replicaConfigSet[0]} index={0} />
 
                    </tbody> 
                 </table>
                 </div>
                 <div className="col-sm-4">
+                Filecoin Simple Calculator of cost: (actually, this is S3 Glacier Instant Retrieval 100TiB) USD$2,355.23
+                https://calculator.aws/#/estimate?id=dbd073c7689c236e45313c908bff9e1f916f094c
                 </div>
+
             </div>
+
         </div>
     )
 }

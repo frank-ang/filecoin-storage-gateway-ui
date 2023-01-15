@@ -6,24 +6,17 @@ function ReplicaConfig({config},{index}) {
         console.log(`#### ReplicaConfig.useEffect(). config:${JSON.stringify(config)}}, index:${JSON.stringify(index)}`)
     }, [config, index]);
 
-    return(
-
-                      <tr>
-                          <td>{JSON.stringify(config)}</td>
-                          <td>{JSON.stringify(index)}</td>
-                          <td>Bar</td>
-                          <td><button className="btn btn-outline-success" >Configure</button></td>
-                      </tr>
+    return (
+            <tr>
+                <td>{JSON.stringify(config.replicaId)}</td>
+                <td>{JSON.stringify(config.size)}</td>
+                <td>{JSON.stringify(config.storageProvider)}</td>
+                <td>{JSON.stringify(config.spid)}</td>
+                <td>{JSON.stringify(config.location)}</td>
+                <td>{JSON.stringify(config.estimatedFees)}</td>
+                <td><button className="btn btn-outline-success" >Configure</button></td>
+            </tr>
     )
 }
-export default ReplicaConfig
 
-/*
-                            <tr key={index} onClick={(e) => {
-                                    rowSelected(e, index, prep.id)
-                                }}
-                                >
-                                <td className={index==activeRow ? 'selected' : '' }>{prep.id} | {index}</td>
-                                <td className={index==activeRow ? 'selected' : '' }>{prep.name}</td>
-                            </tr>
-*/
+export default ReplicaConfig
