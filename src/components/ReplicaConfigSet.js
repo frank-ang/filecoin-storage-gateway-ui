@@ -1,23 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import ReplicaConfig from './ReplicaConfig';
 
-function ReplicaConfigSet(){
+function ReplicaConfigSet() {
     const [replicaConfig, setReplicaConfig] = useState([]);
     const [replicaConfigSet, setReplicaConfigSet] = useState([]);
+
     useEffect(() => {
-        console.log(`### ReplicaConfigSet: use effect. replicaConfigSet: ${JSON.stringify(replicaConfigSet)}`)
-    }, [replicaConfig, replicaConfigSet]);
+        console.log(`ReplicaConfigSet.replicaConfigSet() : ${JSON.stringify(replicaConfigSet)}`)
+    }, [replicaConfigSet]);
 
-    const addReplicaConfig = ()=>{
-        console.log(`## addReplicaConfig`)
-
+    const addReplicaConfig = () => {
+        console.log(`## ReplicaConfigSet.addReplicaConfig()`)
         const rowsInput={
             fullName:'new',
             emailAddress:'new',
             salary:'new'  
-        } 
+        }
         setReplicaConfigSet([...replicaConfigSet, rowsInput])
-        
+        console.log(`## ReplicaConfigSet.addReplicaConfig() completed`)
     }
     const deleteReplicaConfig = (index)=>{
         console.log(`## deleteReplicaConfig`)
@@ -44,11 +44,16 @@ function ReplicaConfigSet(){
                           <th>Full Name</th>
                           <th>Email Address</th>
                           <th>Salary</th>
-                          <th><button className="btn btn-outline-success" onClick={addReplicaConfig} >+</button></th>
+                          <th><button className="btn btn-outline-success" onClick={addReplicaConfig}>&nbsp; + &nbsp;</button></th>
                       </tr>
                     </thead>
-                   <tbody>
-                        <ReplicaConfig config={replicaConfigSet} deleteTableRows={deleteReplicaConfig} handleChange={handleChange} />
+                    <tbody>
+
+                        {console.log(`ReplicaConfigSet MAP! replicaConfigSet: ${JSON.stringify(replicaConfigSet)}`) &&
+                        replicaConfigSet.map((repConf, _index) => (
+                            <ReplicaConfig config={repConf} index={_index} /> // deleteTableRows={deleteReplicaConfig} handleChange={handleChange} />
+                        ))}
+
                    </tbody> 
                 </table>
                 </div>
@@ -59,5 +64,4 @@ function ReplicaConfigSet(){
     )
 }
 
-// TODO SP Catalog.
-export default ReplicaConfigSet
+export default ReplicaConfigSet;

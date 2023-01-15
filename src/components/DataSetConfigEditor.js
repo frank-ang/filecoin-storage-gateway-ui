@@ -16,7 +16,7 @@ function DataSetConfigEditor({dataSetConfig},{replicaConfigSet}) {
         console.log(`#### DataSetConfigEditor.useEffect(). activeKey:${JSON.stringify(activeKey)}}`)
     }, [dataSetConfig, replicaConfigSet]);
 
-    function openAccordion(event) {
+    async function openAccordion(event) {
         console.log(`### DataSetConfigEditor.openAccordion(). event: (${JSON.stringify(event)}, activeKey:${JSON.stringify(activeKey)}.`);
         setActiveKey(event)
         // TODO set {event} index accordion to open
@@ -34,8 +34,8 @@ function DataSetConfigEditor({dataSetConfig},{replicaConfigSet}) {
                             justifyContent: 'left',
                         }}>Data Set Configuration Wizard</Card.Header>
                         <Card.Body>
-                            <Form>
-                                <Accordion className="m-2" defaultActiveKey={activeKey} onSelect={openAccordion}> 
+                            <Accordion className="m-2" defaultActiveKey={activeKey} onSelect={openAccordion}> 
+                                <Form>
                                     <Accordion.Item eventKey="0">
                                         <Accordion.Header>Prepare Source</Accordion.Header>
                                         <Accordion.Body>
@@ -87,7 +87,7 @@ function DataSetConfigEditor({dataSetConfig},{replicaConfigSet}) {
                                     </Accordion.Item>
 
                                     <Accordion.Item eventKey="1" className="accordion-collapse collapse show" >
-                                        <Accordion.Header>Data Replication Policy</Accordion.Header>
+                                        <Accordion.Header>Replica Configuration Set</Accordion.Header>
                                         <Accordion.Body>
                                             <ReplicaConfigSet replicaConfigSet={replicaConfigSet} />
                                         </Accordion.Body>
@@ -128,8 +128,8 @@ function DataSetConfigEditor({dataSetConfig},{replicaConfigSet}) {
 
                                         </Accordion.Body>
                                     </Accordion.Item>
-                                </Accordion>
-                            </Form>
+                                </Form>
+                            </Accordion>
                         </Card.Body>
                     </Card>
                 </Row>
