@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
 import Table from 'react-bootstrap/Table'
@@ -10,8 +10,18 @@ import ReplicaConfigSet from './ReplicaConfigSet';
 
 function DataSetConfigEditor({dataSetConfig},{replicaConfigSet}) {
 
+    const [activeKey, setActiveKey] = useState(0);
+
     useEffect(() => {
-      }, [dataSetConfig, replicaConfigSet]);
+        console.log(`#### DataSetConfigEditor.useEffect(). activeKey:${JSON.stringify(activeKey)}}`)
+    }, [dataSetConfig, replicaConfigSet]);
+
+    function openAccordion(event) {
+        console.log(`### DataSetConfigEditor.openAccordion(). event: (${JSON.stringify(event)}, activeKey:${JSON.stringify(activeKey)}.`);
+        setActiveKey(event)
+        // TODO set {event} index accordion to open
+        // TODO set {event} index accordion to open
+    }
 
     return(
         <div>
@@ -25,11 +35,11 @@ function DataSetConfigEditor({dataSetConfig},{replicaConfigSet}) {
                         }}>Data Set Configuration Wizard</Card.Header>
                         <Card.Body>
                             <Form>
-                                <Accordion defaultActiveKey="0" className="m-2">
+                                <Accordion className="m-2" defaultActiveKey={activeKey} onSelect={openAccordion}> 
                                     <Accordion.Item eventKey="0">
                                         <Accordion.Header>Prepare Source</Accordion.Header>
                                         <Accordion.Body>
-                                            <Container fluid="true" class="accordion-collapse collapse show">
+                                            <Container fluid="true" className="accordion-collapse collapse show">
                                             
                                                 <Row className="mb-3">
                                                     <Form.Group as={Row} className="mb-3" controlId="dataSetName">
@@ -51,7 +61,7 @@ function DataSetConfigEditor({dataSetConfig},{replicaConfigSet}) {
                                                         </Col>
                                                     </Form.Group>
                                                 </Row>
-                                                <Row className="mb-3" isHidden={true} >
+                                                <Row className="mb-3" >
                                                     <Form.Group as={Row} className="mb-3" >
                                                         <Col>
                                                             <Form.Check type="switch" label="Encrypt" />
@@ -76,20 +86,20 @@ function DataSetConfigEditor({dataSetConfig},{replicaConfigSet}) {
                                         </Accordion.Body>
                                     </Accordion.Item>
 
-                                    <Accordion.Item eventKey="1" class="accordion-collapse collapse show" >
+                                    <Accordion.Item eventKey="1" className="accordion-collapse collapse show" >
                                         <Accordion.Header>Data Replication Policy</Accordion.Header>
                                         <Accordion.Body>
                                             <ReplicaConfigSet replicaConfigSet={replicaConfigSet} />
                                         </Accordion.Body>
                                     </Accordion.Item>
 
-                                    <Accordion.Item eventKey="2" class="accordion-collapse collapse show" >
+                                    <Accordion.Item eventKey="2" className="accordion-collapse collapse show" >
                                         <Accordion.Header>Configure more shit</Accordion.Header>
                                         <Accordion.Body>
                                         </Accordion.Body>
                                     </Accordion.Item>
 
-                                    <Accordion.Item eventKey="3" class="accordion-collapse collapse show" >
+                                    <Accordion.Item eventKey="3" className="accordion-collapse collapse show" >
                                         <Accordion.Header>Confirm</Accordion.Header>
                                         <Accordion.Body>
 
