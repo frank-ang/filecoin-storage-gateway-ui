@@ -12,8 +12,7 @@ function Menubar() {
                         width="30"
                         height="30"
                         className="d-inline-block align-top"
-                    />
-                    &nbsp;
+                    />&nbsp;
                     Filecoin Storage Gateway
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -21,7 +20,8 @@ function Menubar() {
                     <Nav className="mr-auto">
                         <Nav.Link href="/">Home</Nav.Link> &nbsp;
                         <Nav.Link href="/DataSets">DataSets</Nav.Link> &nbsp;
-                        <Nav.Link href="/DataSetConfigEditor">DataSet Configurator</Nav.Link> &nbsp;
+                        <Nav.Link href="/DataSetConfigEditor">Configure DataSet</Nav.Link> &nbsp;
+                        <Nav.Link href="/ReplicaConfigEditor">Configure Replica</Nav.Link> &nbsp;
                         <Nav.Link href="/SPCatalog">SP Catalog</Nav.Link> &nbsp;
                         <Nav.Link href="/DataSetBrowser">DataSet Browser</Nav.Link> &nbsp;
                         <NavDropdown title="Feature Backlog 🛠️🚧👷🏽" id="basic-nav-dropdown">

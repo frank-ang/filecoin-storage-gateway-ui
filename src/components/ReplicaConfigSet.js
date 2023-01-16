@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import ReplicaConfig from './ReplicaConfig';
+import ReplicaConfigRow from './ReplicaConfigRow';
+import { Button, } from 'react-bootstrap';
 
 function ReplicaConfigSet() {
     const [replicaConfig, setReplicaConfig] = useState([]);
@@ -29,8 +30,11 @@ function ReplicaConfigSet() {
             estimatedFees:'new estimated fees',
         }
         setReplicaConfigSet([...replicaConfigSet, rowsInput])
+        console.log(`## Opening mockup ReplicaConfigEditor...`);
+
         console.log(`## ReplicaConfigSet.addReplicaConfig() completed`)
     }
+
     const deleteReplicaConfig = (index)=>{
         console.log(`## deleteReplicaConfig`)
         const rows = [...replicaConfig];
@@ -59,23 +63,21 @@ function ReplicaConfigSet() {
                           <th>SP ID</th>
                           <th>Country</th>
                           <th>Storage Fees ($USD)</th>
-                          <th><button className="btn btn-outline-success" onClick={addReplicaConfig}>&nbsp; + &nbsp;</button></th>
+                          <th><Button type="button" variant="primary" className="float-right" onClick={addReplicaConfig}>+Add</Button></th>
                       </tr>
                     </thead>
                     <tbody>
-
-                        {console.log(`ReplicaConfigSet MAP! replicaConfigSet: ${JSON.stringify(replicaConfigSet)}`) &&
-                        replicaConfigSet.map((repConf, _index) => (
-                            <ReplicaConfig config={repConf} index={_index} /> // deleteTableRows={deleteReplicaConfig} handleChange={handleChange} />
+                        {console.log(`#### ReplicaConfigSet MAP! replicaConfigSet: ${JSON.stringify(replicaConfigSet)}`) &&
+                        replicaConfigSet.map((repConf, index) => (
+                            <ReplicaConfigRow config={repConf} key={index} onClick={(e) => {
+                                alert("ReplicaConfig clicked!")
+                            }}/> // deleteTableRows={deleteReplicaConfig} handleChange={handleChange} />
                         ))}
-                        <ReplicaConfig config={replicaConfigSet[0]} index={0} />
-
+                        <ReplicaConfigRow config={replicaConfigSet[0]} index={0} />
                    </tbody> 
                 </table>
                 </div>
                 <div className="col-sm-4">
-                Filecoin Simple Calculator of cost: (actually, this is S3 Glacier Instant Retrieval 100TiB) USD$2,355.23
-                https://calculator.aws/#/estimate?id=dbd073c7689c236e45313c908bff9e1f916f094c
                 </div>
 
             </div>
@@ -85,3 +87,9 @@ function ReplicaConfigSet() {
 }
 
 export default ReplicaConfigSet;
+
+// Filecoin storage cost comparison vs S3 Glacier Instant Retrieval 100TiB 30TiB retrieved monthly. Monthly Cost: USD$2,355.23
+// https://calculator.aws/#/estimate?id=dbd073c7689c236e45313c908bff9e1f916f094c
+
+// Filecoin storage cost comparison vs S3 Glacier Instant Retrieval 100TiB 10TiB retrieved monthly. Monthly Cost: USD$1,126.43
+// https://calculator.aws/#/estimate?id=1f547ab2e8a8789c80a19c0799ec4369b7ef152d

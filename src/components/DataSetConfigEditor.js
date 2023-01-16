@@ -8,9 +8,10 @@ import Col from 'react-bootstrap/Col';
 import Accordion from 'react-bootstrap/Accordion';
 import ReplicaConfigSet from './ReplicaConfigSet';
 
-function DataSetConfigEditor({dataSetConfig},{replicaConfigSet}) {
+function DataSetConfigEditor({dataSetConfig}) {
 
     const [activeKey, setActiveKey] = useState(0);
+    const [replicaConfigSet, setReplicaConfigSet] = useState([]);
 
     useEffect(() => {
         console.log(`#### DataSetConfigEditor.useEffect(). activeKey:${JSON.stringify(activeKey)}}`)
@@ -50,7 +51,7 @@ function DataSetConfigEditor({dataSetConfig},{replicaConfigSet}) {
                                                             <Form.Control type="text" placeholder="Path of Source Data (S3 or NFS)" />
                                                         </Col>
                                                         <Col>
-                                                            <Button variant="primary" className="float-right">Select S3 path...</Button>{' '}
+                                                            <Button type="button" variant="primary" className="float-right">Select S3 path...</Button>{' '}
                                                         </Col>
                                                     </Form.Group>
                                                 </Row>
@@ -94,13 +95,13 @@ function DataSetConfigEditor({dataSetConfig},{replicaConfigSet}) {
                                     </Accordion.Item>
 
                                     <Accordion.Item eventKey="2" className="accordion-collapse collapse show" >
-                                        <Accordion.Header>Configure more shit</Accordion.Header>
+                                        <Accordion.Header>More configuration... </Accordion.Header>
                                         <Accordion.Body>
                                         </Accordion.Body>
                                     </Accordion.Item>
 
                                     <Accordion.Item eventKey="3" className="accordion-collapse collapse show" >
-                                        <Accordion.Header>Confirm</Accordion.Header>
+                                        <Accordion.Header>Confirmation</Accordion.Header>
                                         <Accordion.Body>
 
                                             <Form.Group className="mb-3" controlId="formBasicCheckbox">

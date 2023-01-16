@@ -23,8 +23,6 @@ function GenerationRequest({generationRequest}) {
                     {JSON.stringify(generationRequest.dataCid)}
                 </td>
         </tr>
-
-
      )
 }
 
