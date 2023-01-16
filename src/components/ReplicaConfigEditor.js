@@ -8,6 +8,7 @@ import Modal from 'react-bootstrap/Modal';
 import SPCatalog from './SPCatalog';
 
 function ReplicaConfigEditor() {
+
     const [replicaConfig, setReplicaConfig] = useState({
             replicaId:'0',
             size:'100 TiB',
@@ -78,24 +79,24 @@ function ReplicaConfigEditor() {
                                     <Form.Control type="text"  defaultValue={replicaConfig.estimatedFees} />
                                 </Col>
                             </Row>
+
+                            <hr/>
+                            <Row style={{display: 'flex',justifyContent: 'left', alignContent: 'left' }}>
+                                <Col sm={7}>
+                                </Col>
+                                <Col sm={2}>
+                                    <Button type="button" className="btn float-left">Save.</Button>
+                                </Col>
+                            </Row>
                         </Form>
                 </Card.Body>
             </Card>
-            <Modal show={show} onHide={handleClose} dialogClassName="modal-90w" aria-labelledby="example-custom-modal-styling-title"
->
-                <Modal.Header closeButton id="example-custom-modal-styling-title">
-                <Modal.Title>Modal heading</Modal.Title>
+
+            <Modal show={show} onHide={handleClose} backdrop="static" dialogClassName="my-wide-modal" aria-labelledby="example-custom-modal-styling-title">
+                <Modal.Header closeButton>
+                    <Modal.Title id="example-custom-modal-styling-title">Storage Provider Catalog</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <p>
-                        Ipsum molestiae natus adipisci modi eligendi? Debitis amet quae unde
-                        commodi aspernatur enim, consectetur. Cumque deleniti temporibus
-                        ipsam atque a dolores quisquam quisquam adipisci possimus
-                        laboriosam. Quibusdam facilis doloribus debitis! Sit quasi quod
-                        accusamus eos quod. Ab quos consequuntur eaque quo rem! Mollitia
-                        reiciendis porro quo magni incidunt dolore amet atque facilis ipsum
-                        deleniti rem!
-                    </p>
                     <SPCatalog/>
                 </Modal.Body>
                 <Modal.Footer>
@@ -103,8 +104,9 @@ function ReplicaConfigEditor() {
                     Close
                 </Button>
                 <Button variant="primary" onClick={handleClose}>
-                    Save Changes
+                    Compare Options
                 </Button>
+
                 </Modal.Footer>
             </Modal>
 

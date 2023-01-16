@@ -20,8 +20,6 @@ function DataSetConfigEditor({dataSetConfig}) {
     async function openAccordion(event) {
         console.log(`### DataSetConfigEditor.openAccordion(). event: (${JSON.stringify(event)}, activeKey:${JSON.stringify(activeKey)}.`);
         setActiveKey(event)
-        // TODO set {event} index accordion to open
-        // TODO set {event} index accordion to open
     }
 
     return(
@@ -137,7 +135,6 @@ function DataSetConfigEditor({dataSetConfig}) {
             </Container>
         </div>
     );
-
 }
 
 export default DataSetConfigEditor;
