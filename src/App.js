@@ -1,21 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Menubar from './components/Menubar'
 import Home from './components/Home'
 import DataSets from './components/DataSets'
-
+import DataSetConfigEditor from './components/DataSetConfigEditor';
+import ReplicaConfigEditor from './components/ReplicaConfigEditor';
+import SPCatalog from './components/SPCatalog';
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "./index.css";
-
-import { 
-  BrowserRouter as Router, 
-  Route ,
-  Link, 
-  Routes
-} from "react-router-dom";
-
 
 const Footer = () => {
   return (
@@ -30,14 +24,16 @@ function App() {
     <div className="App">
       <Menubar/>
       <Container>
-        <Router>
+        <BrowserRouter>
           <Routes>
             <Route exact path="/" element={<Home/>} />
-            <Route exact path="datasets" element={<DataSets/>} />
+            <Route exact path="DataSets" element={<DataSets/>} />
+            <Route exact path="DataSetConfigEditor" element={<DataSetConfigEditor/>}/>
+            <Route exact path="ReplicaConfigEditor" element={<ReplicaConfigEditor/>}/>
+            <Route exact path="SPCatalog" element={<SPCatalog/>} />
           </Routes>
-        </Router>
+        </BrowserRouter>
       </Container>
-      <Footer/>
     </div>
   );
 }

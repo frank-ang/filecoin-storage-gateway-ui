@@ -93,3 +93,9 @@ table.selectableTable .selected {
   border-color: #0090ff;
   background:#72d9f3;
 }
+
+.my-wide-modal {
+  width: 90%;
+  /* max-width: 90%; */
+  max-width: none !important
+}

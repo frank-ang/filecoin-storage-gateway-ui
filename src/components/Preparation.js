@@ -4,13 +4,12 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Accordion from 'react-bootstrap/Accordion';
-
+import GenerationRequest from './GenerationRequest';
+import Table from 'react-bootstrap/Table'
 
 function Preparation({preparation}) {
-    console.log(`Preparation: ${JSON.stringify(preparation)}`);
 
     useEffect(() => {
-        console.log(`Preparation. USE EFFECT!!: ${JSON.stringify(preparation)}`);
       }, [preparation]);
 
     function preparationAttributeRow(keyName, label) {
@@ -23,36 +22,9 @@ function Preparation({preparation}) {
     }
 
     function propVal(obj, keyName) {
-        console.log(`propVal( ${JSON.stringify(obj)}, ${JSON.stringify(keyName)})`)
         return obj && JSON.stringify(obj[keyName]) || "";
     }
 
-    function GenerationRequestList(generationRequests) {
-        console.log(`GenerationRequestList(${JSON.stringify(generationRequests[0])})`);
-        // console.log(`GenerationRequestList(${JSON.stringify(generationRequests)})`);
-
-        if (generationRequests && generationRequests[0] && generationRequests[0].id) {
-            var genRqArray = generationRequests[0].generationRequests
-            console.log("rendering generationRequests !!");
-            return (
-                genRqArray.map((genRq, index) => (
-                    <Row style={{ textAlign: "left" }}>
-                        <Col xs lg="4">Generation Request</Col>
-                        <Col xs lg="auto">{JSON.stringify(genRq)}</Col>
-                    </Row>
-                ))
-            )
-        } else {
-            console.log(`No data1. generationRequests: ${JSON.stringify(generationRequests)}`);
-            // hacking...  // TODO::: UNDEFINED ???
-            console.log(`No data2. generationRequests: ${JSON.stringify(generationRequests[0]) || "ERROR"}`);
-            console.log(generationRequests[0]);
-            return (
-                <Card.Text>No data in Generation Request List.</Card.Text>
-            );
-        }
-    }
-      
     return(
         <div>
             <Card style={{ width: '100%' }}>
@@ -75,28 +47,38 @@ function Preparation({preparation}) {
 
 
                     <Container fluid="true">
-                        <Accordion>
-                        <Accordion.Item eventKey="0">
-                            <Accordion.Header>Generation Status</Accordion.Header>
-                            <Accordion.Body>
-                                {preparationAttributeRow("generationTotal", )}
-                                {preparationAttributeRow("generationActive", )}
-                                {preparationAttributeRow("generationPaused", )}
-                                {preparationAttributeRow("generationError", )}
-                                <hr/>
-                                {console.log(`### Dump genrequests: ${JSON.stringify(preparation.generationRequests) || "Unable to Stringify!"}`)}
+                        <Accordion className="m-2">
+                            <Accordion.Item eventKey="0">
+                                <Accordion.Header>
+                                    Generation Requests ( {preparation && preparation.generationTotal && JSON.stringify(preparation.generationTotal)} )
+                                </Accordion.Header>
+                                <Accordion.Body>
+                                    {preparationAttributeRow("generationTotal", )}
+                                    {preparationAttributeRow("generationActive", )}
+                                    {preparationAttributeRow("generationPaused", )}
+                                    {preparationAttributeRow("generationError", )}
+                                    <Table striped="columns" bordered hover responsive className="selectableTable">
+                                        <thead>
+                                            <tr>
+                                                <th>id</th>
+                                                <th>index</th>
+                                                <th>status</th>
+                                                <th>dataCid</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {preparation && preparation.generationRequests && preparation.generationRequests.map
+                                            && preparation.generationRequests.map((genRq,) => (
+                                                    <GenerationRequest generationRequest={genRq}/>
+                                        ))}
+                                        </tbody>
+                                    </Table>
 
-                                //{console.log(`### Dump genrequests: ${JSON.stringify(preparation.generationRequests) || "Unable to Stringify!"}`)}
-                               <GenerationRequestList generationRequests={preparation.generationRequests} />
-                                <hr/>
 
-                            </Accordion.Body>
-                        </Accordion.Item>
+                                </Accordion.Body>
+                            </Accordion.Item>
                         </Accordion>
                     </Container>
-
-                    <hr/>
-                    <Card.Text>Data Set Preparation JSON: [{JSON.stringify(preparation)}]</Card.Text>
 
 
                 </Card.Body>
@@ -106,6 +88,5 @@ function Preparation({preparation}) {
     );
 
 }
-// {preparationAttributeRow("generationRequests", )}
 
 export default Preparation;
