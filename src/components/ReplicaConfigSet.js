@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import ReplicaConfigRow from './ReplicaConfigRow';
 import { Button, } from 'react-bootstrap';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 function ReplicaConfigSet() {
     const [replicaConfig, setReplicaConfig] = useState([]);
@@ -51,20 +54,19 @@ function ReplicaConfigSet() {
     }
 
     return(
-        <div className="container">
-            <div className="row">
-                <div className="col-sm-8">
+        <Container fluid="true">
+            <Row>
                 <table className="table">
                     <thead>
-                      <tr>
-                          <th>Replica ID</th>
-                          <th>Size</th>
-                          <th>Storage Provider</th>
-                          <th>SP ID</th>
-                          <th>Country</th>
-                          <th>Storage Fees ($USD)</th>
-                          <th><Button type="button" variant="primary" className="float-right" onClick={addReplicaConfig}>+Add</Button></th>
-                      </tr>
+                        <tr>
+                            <th>Replica ID</th>
+                            <th>Size</th>
+                            <th>Storage Provider</th>
+                            <th>SP ID</th>
+                            <th>Country</th>
+                            <th>Storage Fees ($USD)</th>
+                            <th><Button type="button" variant="primary" className="float-right" onClick={addReplicaConfig}>+Add</Button></th>
+                        </tr>
                     </thead>
                     <tbody>
                         {console.log(`#### ReplicaConfigSet MAP! replicaConfigSet: ${JSON.stringify(replicaConfigSet)}`) &&
@@ -74,15 +76,10 @@ function ReplicaConfigSet() {
                             }}/> // deleteTableRows={deleteReplicaConfig} handleChange={handleChange} />
                         ))}
                         <ReplicaConfigRow config={replicaConfigSet[0]} index={0} />
-                   </tbody> 
+                    </tbody> 
                 </table>
-                </div>
-                <div className="col-sm-4">
-                </div>
-
-            </div>
-
-        </div>
+            </Row>
+        </Container>
     )
 }
 

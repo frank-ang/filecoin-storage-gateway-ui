@@ -22,7 +22,7 @@ function ReplicaConfigRow({config},{index}) {
                 <td>{JSON.stringify(config.spid)}</td>
                 <td>{JSON.stringify(config.location)}</td>
                 <td>{JSON.stringify(config.estimatedFees)}</td>
-                <td><Button type="button" variant="primary" className="float-right" onClick={onEditReplicaConfig}>Configure</Button></td>
+                <td><Button type="button" variant="primary" className="float-right" onClick={onEditReplicaConfig}>Configure Replica</Button></td>
             </tr>
     )
 }
