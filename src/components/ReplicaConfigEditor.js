@@ -10,12 +10,12 @@ import SPCatalog from './SPCatalog';
 function ReplicaConfigEditor() {
 
     const [replicaConfig, setReplicaConfig] = useState({
-            replicaId:'0',
+            replicaId:'1',
             size:'100 TiB',
-            storageProvider:'Select an SP',
-            spid:'Select an SP ID',
-            location:'location here',
-            estimatedFees:'fees here',
+            storageProvider:'',
+            spid:'',
+            location:'',
+            estimatedFees:'',
     });
 
     const openSPCatalog = () => {

@@ -19,26 +19,24 @@ function ReplicaConfigSet() {
     ]);
 
     useEffect(() => {
-        console.log(`ReplicaConfigSet.replicaConfigSet() : ${JSON.stringify(replicaConfigSet)}`)
+        console.log(`ReplicaConfigSet useEffect() : ${JSON.stringify(replicaConfigSet)}`)
     }, [replicaConfigSet]);
 
     const addReplicaConfig = () => {
-        console.log(`## ReplicaConfigSet.addReplicaConfig()`)
+        console.log(`ReplicaConfigSet addReplicaConfig()...`)
         const rowsInput={
-            replicaId:'new',
-            size:'new size',
-            storageProvider:'new SP',
+            replicaId:'add replica id',
+            size:'add size',
+            storageProvider:'add SP',
             spid:'t01000+',
-            location:'new location',
-            estimatedFees:'new estimated fees',
+            location:'add location',
+            estimatedFees:'add estimated fees',
         }
         setReplicaConfigSet([...replicaConfigSet, rowsInput])
-        console.log(`## Opening mockup ReplicaConfigEditor...`);
-
-        console.log(`## ReplicaConfigSet.addReplicaConfig() completed`)
+        console.log(`ReplicaConfigSet. addReplicaConfig completed. ##### Replica count ${replicaConfigSet.length}`)
     }
 
-    const deleteReplicaConfig = (index)=>{
+    const handleDelete = (index) => {
         console.log(`## deleteReplicaConfig`)
         const rows = [...replicaConfig];
         rows.splice(index, 1);
@@ -53,6 +51,7 @@ function ReplicaConfigSet() {
         setReplicaConfigSet(rowsInput);
     }
 
+    // TODO convert table to bootstrap.
     return(
         <Container fluid="true">
             <Row>
@@ -69,12 +68,14 @@ function ReplicaConfigSet() {
                         </tr>
                     </thead>
                     <tbody>
-                        {console.log(`#### ReplicaConfigSet MAP! replicaConfigSet: ${JSON.stringify(replicaConfigSet)}`) &&
-                        replicaConfigSet.map((repConf, index) => (
-                            <ReplicaConfigRow config={repConf} key={index} onClick={(e) => {
-                                alert("ReplicaConfig clicked!")
-                            }}/> // deleteTableRows={deleteReplicaConfig} handleChange={handleChange} />
-                        ))}
+                        {
+                            console.log(`#### ReplicaConfigSet MAP! replicaConfigSet length ${JSON.stringify(replicaConfigSet.length)}`) &&
+                            replicaConfigSet.map((repConf, index) => (
+                                <div>
+                                    <ReplicaConfigRow config={repConf} key={index} handleDelete={handleDelete} />
+                                </div>
+                            ))
+                        }
                         <ReplicaConfigRow config={replicaConfigSet[0]} index={0} />
                     </tbody> 
                 </table>

@@ -3,11 +3,11 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Table from 'react-bootstrap/Table'
 import ProgressBar from 'react-bootstrap/ProgressBar';
-import Preparation from './Preparation';
-import Replication from './Replication';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Preparation from './Preparation';
+import Replication from './Replication';
 
 function DataSets () {
     const PREPARATIONS_LIST_API_PATH = '/preparations';
