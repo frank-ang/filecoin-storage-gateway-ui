@@ -15,19 +15,19 @@ function ReplicaConfigRow({config},{index} ) {
     }, [navigate]);
 
     return (
-            <tr>
-                <td>{JSON.stringify(config.replicaId)}</td>
-                <td>{JSON.stringify(config.size)}</td>
-                <td>{JSON.stringify(config.storageProvider)}</td>
-                <td>{JSON.stringify(config.spid)}</td>
-                <td>{JSON.stringify(config.location)}</td>
-                <td>{JSON.stringify(config.estimatedFees)}</td>
-                <td>
-                    <Button type="button" variant="primary" className="float-left" onClick={onEditReplicaConfig}>Configure</Button>
-                    <Button type="button" variant="primary" className="float-right" onClick={onEditReplicaConfig}>Delete</Button>
-                </td>
+        <tr key={index}>
+            <td>{config && JSON.stringify(config.replicaId)}</td>
+            <td>{config && JSON.stringify(config.size)}</td>
+            <td>{config && JSON.stringify(config.storageProvider)}</td>
+            <td>{config && JSON.stringify(config.spid)}</td>
+            <td>{config && JSON.stringify(config.location)}</td>
+            <td>{config && JSON.stringify(config.estimatedFees)}</td>
+            <td>
+                <Button type="button" variant="primary" className="float-left" onClick={onEditReplicaConfig}>Configure</Button>
+                <Button type="button" variant="primary" className="float-right" onClick={onEditReplicaConfig}>Delete</Button>
+            </td>
 
-            </tr>
+        </tr>
     )
 }
 

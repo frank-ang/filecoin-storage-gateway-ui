@@ -1,21 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import ReplicaConfigRow from './ReplicaConfigRow';
 import { Button, } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
+import { useNavigate } from 'react-router-dom';
+
 
 function ReplicaConfigSet() {
     const [replicaConfig, setReplicaConfig] = useState([]);
-    const [replicaConfigSet, setReplicaConfigSet] = useState([
-        {
-            replicaId:'1',
-            size:'100 TiB',
-            storageProvider:'Greater Heat',
-            spid:'t01000',
-            location:'Dallas, Texas, USA',
-            estimatedFees:'USD $235.52',
-        }
-    ]);
+    const [replicaConfigSet, setReplicaConfigSet] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         console.log(`ReplicaConfigSet useEffect() : ${JSON.stringify(replicaConfigSet)}`)
@@ -24,12 +18,12 @@ function ReplicaConfigSet() {
     const addReplicaConfig = () => {
         console.log(`ReplicaConfigSet addReplicaConfig()...`)
         const rowsInput={
-            replicaId:'add replica id',
-            size:'add size',
-            storageProvider:'add SP',
-            spid:'t01000+',
-            location:'add location',
-            estimatedFees:'add estimated fees',
+            replicaId:'TODO +1',
+            size:'TODO size',
+            storageProvider:'',
+            spid:'',
+            location:'',
+            estimatedFees:'',
         }
         setReplicaConfigSet([...replicaConfigSet, rowsInput])
         console.log(`ReplicaConfigSet. addReplicaConfig completed. ##### Replica count ${replicaConfigSet.length}`)
@@ -50,6 +44,11 @@ function ReplicaConfigSet() {
         setReplicaConfigSet(rowsInput);
     }
 
+    const onEditReplicaConfig = useCallback(() => { 
+        console.log(`ReplicaConfigRow . Navigating to Editor...`);
+        navigate('/ReplicaConfigEditor')
+    }, [navigate]);
+
     // TODO convert table to bootstrap.
     return(
         <Container fluid="true">
@@ -67,15 +66,10 @@ function ReplicaConfigSet() {
                         </tr>
                     </thead>
                     <tbody>
-                        {
-                            console.log(`#### ReplicaConfigSet MAP! replicaConfigSet length ${JSON.stringify(replicaConfigSet.length)}`) &&
-                            replicaConfigSet.map((repConf, index) => (
-                                <div>
-                                    <ReplicaConfigRow config={repConf} key={index} handleDelete={handleDelete} />
-                                </div>
+                        {replicaConfigSet.map((config, index) => (
+                                <ReplicaConfigRow config={config} index={0} />
                             ))
                         }
-                        <ReplicaConfigRow config={replicaConfigSet[0]} index={0} />
                     </tbody> 
                 </table>
             </Row>
@@ -85,8 +79,3 @@ function ReplicaConfigSet() {
 
 export default ReplicaConfigSet;
 
-// Filecoin storage cost comparison vs S3 Glacier Instant Retrieval 100TiB 30TiB retrieved monthly. Monthly Cost: USD$2,355.23
-// https://calculator.aws/#/estimate?id=dbd073c7689c236e45313c908bff9e1f916f094c
-
-// Filecoin storage cost comparison vs S3 Glacier Instant Retrieval 100TiB 10TiB retrieved monthly. Monthly Cost: USD$1,126.43
-// https://calculator.aws/#/estimate?id=1f547ab2e8a8789c80a19c0799ec4369b7ef152d
