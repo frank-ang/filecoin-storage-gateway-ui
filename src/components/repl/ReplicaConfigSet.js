@@ -44,7 +44,7 @@ function ReplicaConfigSet() {
         setReplicaConfigSet(rowsInput);
     }
 
-    const onEditReplicaConfig = useCallback(() => { 
+    const onEditReplicaConfig = useCallback(() => {
         console.log(`ReplicaConfigRow . Navigating to Editor...`);
         navigate('/ReplicaConfigEditor')
     }, [navigate]);
@@ -70,7 +70,7 @@ function ReplicaConfigSet() {
                                 <ReplicaConfigRow config={config} index={0} />
                             ))
                         }
-                    </tbody> 
+                    </tbody>
                 </table>
             </Row>
         </Container>

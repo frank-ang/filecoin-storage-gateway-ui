@@ -9,7 +9,7 @@ function ReplicaConfigRow({config},{index} ) {
     }, [config, index]);
 
     const navigate = useNavigate();
-    const onEditReplicaConfig = useCallback(() => { 
+    const onEditReplicaConfig = useCallback(() => {
         console.log(`ReplicaConfigRow . Navigating to Editor...`);
         navigate('/ReplicaConfigEditor')
     }, [navigate]);

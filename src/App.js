@@ -14,9 +14,7 @@ import "./index.css";
 
 const Footer = () => {
   return (
-      <footer className="fixed-bottom footer text-center text-muted bg-dark">
-        © 2023 Frank Ang
-      </footer>
+      <footer className="fixed-bottom footer text-center text-muted bg-dark">footer here</footer>
   )
 }
 
@@ -30,10 +28,10 @@ function App() {
           <Routes>
             <Route exact path="/" element={<Home/>} />
             <Route exact path="DataSets" element={<DataSets/>} />
-            <Route exact path="DataSetConfigEditor" element={<DataSetConfigEditor/>}/>
-            <Route exact path="ReplicaConfigEditor" element={<ReplicaConfigEditor/>}/>
+            <Route exact path="DataSetConfigEditor" element={<DataSetConfigEditor/>} />
+            <Route exact path="ReplicaConfigEditor" element={<ReplicaConfigEditor/>} />
             <Route exact path="SPCatalog" element={<SPCatalog/>} />
-            <Route exact path="DataSetBrowser" element={<DataSetBrowser/>} />           
+            <Route exact path="DataSetBrowser" element={<DataSetBrowser/>} />
           </Routes>
         </BrowserRouter>
       </Container>

@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Table from 'react-bootstrap/Table'
 import { Form } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 function SPCatalog() {
 
@@ -50,6 +53,19 @@ function SPCatalog() {
 
     return(
         <div>
+            <Container fluid="true" className="accordion-collapse collapse show">
+                    <Form.Group as={Row} className="mb-3" controlId="dataSetName">
+                        <Col>
+                            <Form.Control type="text" placeholder="Search..." />
+                        </Col>
+                        <Col>
+                            <Button type="button" variant="primary" className="float-right">Search</Button>{' '}
+                        </Col>
+                        <Col>
+                            [Other filter controls here]
+                        </Col>
+                    </Form.Group>
+            </Container>
             <Table striped="columns" bordered hover responsive className="selectableTable">
                 <thead>
                     <tr>

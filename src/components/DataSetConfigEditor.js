@@ -36,8 +36,6 @@ function DataSetConfigEditor() {
         console.log(`### DataSetConfigEditor toggleAdvancedOptions(), current showAdvancedOptions: (${JSON.stringify(showAdvancedOptions)}.`);
         setShowAdvancedOptions(current => !current);
     };
-    
-    
 
     return(
         <div>
@@ -162,7 +160,7 @@ function DataSetConfigEditor() {
                                                         <td>Estimated AWS Data Transfer Egress fees</td>
                                                         <td>USD$7,987.20</td>
                                                         <td>Estimated savings of: USD$[big bucks] on AWS Data Transfer egress costs. To replicate the dataset to [R] participating SPs. 
-                                                        E.g. 100 TiB 1-time AWS egress:
+                                                        For illustration, AWS Data Transfer egress fees for 100 TiB in a month:
                                                             <ul>
                                                                 <li>
                                                                     <a href="https://calculator.aws/#/estimate?id=6aac790e80874dec1fb6fc5336d54809fcebd6bf">US Ohio 7,987.20 USD</a>
@@ -170,10 +168,8 @@ function DataSetConfigEditor() {
                                                                 <li>
                                                                     <a href="https://calculator.aws/#/estimate?id=b39338fa7afce8338a26cb721782699471b5ea9c">Asia Singapore 8,908.80 USD</a>
                                                                 </li>
-                                                                
                                                             </ul>
                                                         </td>
-                                                            
                                                     </tr>
                                                 </tbody>
                                             </Table>

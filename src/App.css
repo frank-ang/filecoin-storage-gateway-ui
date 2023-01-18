@@ -99,6 +99,6 @@ table.selectableTable .selected {
   max-width: none !important
 }
 
-.hidden { 
+.hidden {
   display:none;
 }
