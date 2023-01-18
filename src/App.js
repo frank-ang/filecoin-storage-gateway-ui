@@ -5,8 +5,9 @@ import Menubar from './components/Menubar'
 import Home from './components/Home'
 import DataSets from './components/DataSets'
 import DataSetConfigEditor from './components/DataSetConfigEditor';
-import ReplicaConfigEditor from './components/ReplicaConfigEditor';
-import SPCatalog from './components/SPCatalog';
+import ReplicaConfigEditor from './components/repl/ReplicaConfigEditor';
+import SPCatalog from './components/sp/SPCatalog';
+import DataSetBrowser from './components/retrieve/DataSetBrowser';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./index.css";
@@ -31,6 +32,7 @@ function App() {
             <Route exact path="DataSetConfigEditor" element={<DataSetConfigEditor/>}/>
             <Route exact path="ReplicaConfigEditor" element={<ReplicaConfigEditor/>}/>
             <Route exact path="SPCatalog" element={<SPCatalog/>} />
+            <Route exact path="DataSetBrowser" element={<DataSetBrowser/>} />           
           </Routes>
         </BrowserRouter>
       </Container>

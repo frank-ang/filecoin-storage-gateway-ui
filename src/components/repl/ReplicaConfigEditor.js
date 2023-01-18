@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import { Form } from 'react-bootstrap';
 import Modal from 'react-bootstrap/Modal';
-import SPCatalog from './SPCatalog';
+import SPCatalog from '../sp/SPCatalog';
 
 function ReplicaConfigEditor() {
 
