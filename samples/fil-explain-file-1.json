@@ -1,0 +1,14 @@
+{
+  "sources": [
+    {
+      "to": 1024,
+      "cid": "bafkreiay6rcha64p5pd5leopguwvralwrg5a7hpayriiv6k2oozubnwxhy",
+      "from": 0
+    }
+  ],
+  "stat": {
+    "type": "file",
+    "size": 1024,
+    "name": "file-1"
+  }
+}
