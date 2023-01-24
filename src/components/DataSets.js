@@ -73,18 +73,18 @@ function DataSets () {
                     display: 'flex',
                     justifyContent: 'left',
                 }}>
-                    Data Sets
+                    DataSet Preparation
                 </Card.Header>
                 <Card.Body>
                     <Table striped="columns" bordered hover responsive className="selectableTable">
                         <thead>
                             <tr>
-                                <th>id</th>
-                                <th>name</th>
-                                <th>path</th>
-                                <th>outDir</th>
-                                <th>scanningStatus</th>
-                                <th>progress</th>
+                                <th>DataSet ID</th>
+                                <th>Name</th>
+                                <th>Source Data Path</th>
+                                <th>CAR Files Path</th>
+                                <th>Scanning Status</th>
+                                <th>Progress</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -93,7 +93,7 @@ function DataSets () {
                                     rowSelected(e, index, prep.id)
                                 }}
                                 >
-                                <td className={index===activeRow ? 'selected' : '' }>{prep.id} | {index}</td>
+                                <td className={index===activeRow ? 'selected' : '' }>{prep.id}</td>
                                 <td className={index===activeRow ? 'selected' : '' }>{prep.name}</td>
                                 <td className={index===activeRow ? 'selected' : '' }>{prep.path}</td>
                                 <td className={index===activeRow ? 'selected' : '' }>{prep.outDir}</td>

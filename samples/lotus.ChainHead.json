@@ -1,0 +1,58 @@
+{
+  "jsonrpc": "2.0",
+  "result": {
+    "Cids": [
+      {
+        "/": "bafy2bzaceb4zlgqs5iy2ilhwbqknagdfedyifywle4gxvz7ukkylil2nlgaea"
+      }
+    ],
+    "Blocks": [
+      {
+        "Miner": "t01000",
+        "Ticket": {
+          "VRFProof": "topBdl+mooM0Xacyq9FYAo0VtBsCLaav/0RIpH41J/fIxeHOgoYIesVr85PalHbrCgweEnarCSgR4AEZ7aulkAfWJnXDjaPzqfv4D89lQ/uXSCgBPZ9ojyvZSmqGStm6"
+        },
+        "ElectionProof": {
+          "WinCount": 10,
+          "VRFProof": "rjJqCmTr6unEGNlPDBb1coW9QnT0svhIOdJMun84Un1tzMuwWdVEp22jdnWY1pn2BzSSGwLGVdvVbkXWgCYVjnvCl6JH8B+8CMUZYGRnEW6HQeBWN6Cpd5R3Ac+AKX/K"
+        },
+        "BeaconEntries": null,
+        "WinPoStProof": [
+          {
+            "PoStProof": 0,
+            "ProofBytes": "dmFsaWQgcHJvb2Y="
+          }
+        ],
+        "Parents": [
+          {
+            "/": "bafy2bzacecorp3enw75fgoagcjqwbdnkiwsunndqe4tdi33eilsppksjpng64"
+          }
+        ],
+        "ParentWeight": "147234755",
+        "Height": 14829,
+        "ParentStateRoot": {
+          "/": "bafy2bzacec6tnqrizcnvvf2ijhldod5etaxdexfe6juqjxizcty5yznnr7s64"
+        },
+        "ParentMessageReceipts": {
+          "/": "bafy2bzacedswlcz5ddgqnyo3sak3jmhmkxashisnlpq6ujgyhe4mlobzpnhs6"
+        },
+        "Messages": {
+          "/": "bafy2bzacecmda75ovposbdateg7eyhwij65zklgyijgcjwynlklmqazpwlhba"
+        },
+        "BLSAggregate": {
+          "Type": 2,
+          "Data": "wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+        },
+        "Timestamp": 1674509219,
+        "BlockSig": {
+          "Type": 2,
+          "Data": "iAB3IinBRwz+S5HrIe23mO3vJGlcFJdG8FB0ISq4yP5DxnQNN69N+QTCRzRE3E/EDDCTDNptNci0bMp5rncx24JTi/Fzv8HJqxCY78StRy6dN16YzigYEq2SiUAVksDj"
+        },
+        "ForkSignaling": 0,
+        "ParentBaseFee": "100"
+      }
+    ],
+    "Height": 14829
+  },
+  "id": 1
+}

@@ -68,16 +68,14 @@ function DataSetConfigEditor() {
                                                         </Col>
                                                     </Form.Group>
                                                 </Row>
-                                                <Row className="mb-3">
-                                                    <Form.Group as={Row} className="mb-3" controlId="advancedPrep">
-                                                        <Col>
-                                                            <Form.Check type="checkbox" label="Advanced Data Preparation Settings?" onClick={toggleAdvancedOptions}/>
-                                                        </Col>
+                                                <Row className="mb-3" >
+                                                    <Form.Group as={Row} style={{ textAlign: "left" }} className="mb-3" controlId="advancedPrep">
+                                                            <Form.Check as={Col} type="checkbox" label="Advanced Data Preparation Settings?" onClick={toggleAdvancedOptions}/>
                                                     </Form.Group>
                                                 </Row>
                                                 <Row className="mb-3" >
                                                     { showAdvancedOptions && 
-                                                        <Form.Group as={Row} className="mb-3" disabled>
+                                                        <Form.Group as={Row} style={{ textAlign: "left" }} className="mb-3" disabled>
                                                             <Col>
                                                                 <Form.Check type="switch" label="Encrypt" />
                                                             </Col>
