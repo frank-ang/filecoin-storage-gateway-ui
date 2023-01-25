@@ -8,7 +8,7 @@ test:
 	npm test
 
 start: singularity_start api_start www_start
-	echo "starting react"
+	echo "starting react in foreground"
 	npm start
 
 stop: www_stop api_stop singularity_stop
@@ -19,7 +19,7 @@ stop: www_stop api_stop singularity_stop
 singularity_start:
 	singularity prep list >> /dev/null 2>&1 && echo "singularity already started" && exit 0 || echo "singularity not started."
 	echo "starting Singularity..."
-	nohup singularity daemon >> ./singularity.log.gitignore 2>&1 &
+	nohup singularity daemon >> /singularity.log.gitignore 2>&1 &
 
 singularity_stop:
 	echo "stopping singularity..."
@@ -39,7 +39,7 @@ www_stop:
 
 api_start:
 	echo "starting gateway API..."
-	cd server && nohup npm run server >> ./gateway-api.log.gitignore 2>&1 &
+	cd server && nohup npm run server >> ../gateway-api.log.gitignore 2>&1 &
 
 api_stop:
 	echo "stopping gateway API..."
