@@ -1,12 +1,29 @@
 import React, { useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
-import Table from 'react-bootstrap/Table'
+import { FullFileBrowser, ChonkyActions, setChonkyDefaults } from 'chonky';
+import { ChonkyIconFA } from 'chonky-icon-fontawesome';
 
 function DataSetBrowser({datasetId}) {
 
+    setChonkyDefaults({
+        iconComponent: ChonkyIconFA,
+        disableSelection: true,
+        disableDragAndDropProvider: true,
+        defaultFileViewActionId: ChonkyActions.EnableListView.id,
+    });
+
     useEffect(() => {
       }, [datasetId]);
+
+    const files = [
+        { id: 'lht', name: 'Projects', isDir: true },
+        {
+            id: 'mcd',
+            name: 'chonky-sphere-v2.png',
+        },
+    ];
+    const folderChain = []; //  [{ id: 'xcv', name: 'Parent', isDir: true }];
 
     return(
         <div>
@@ -20,7 +37,9 @@ function DataSetBrowser({datasetId}) {
                 </Card.Header>
                 <Card.Body>
                     <Container fluid="true">
-                        TODO
+                        <div style={{ height: 300 }}>
+                            <FullFileBrowser files={files} folderChain={folderChain} />
+                        </div>
                     </Container>
                 </Card.Body>
             </Card>
