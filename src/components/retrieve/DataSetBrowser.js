@@ -8,7 +8,7 @@ function DataSetBrowser({datasetId}) {
 
     const LS_API_PATH = '/ls/';
     const [path, setPath] = useState('');
-    const [fileList, setFileList] = useState([]);
+    const [browserFileList, setBrowserFileList] = useState([]);
 
     const staticDemoFiles = [
         { id: 'lht', name: 'Projects', isDir: true },
@@ -38,10 +38,24 @@ function DataSetBrowser({datasetId}) {
                 console.log(response);
                 return response.json();
             })
-            .then(function(myJson) {
-                console.log(myJson);
-                setFileList(myJson);
+            .then(function(apiFileList) {
+                initBrowserFileList(apiFileList);
+            })
+    }
+
+    function initBrowserFileList(apiFileList) {
+        var browserFileList = [];
+        apiFileList.forEach(function(apiFile) {
+            browserFileList.push({
+                id: apiFile.name,
+                name: apiFile.name,
+                isDir: false, // TODO conditional.
+                size:apiFile.size,
+                parentId:"TODO...what.is.this for? remove it?",
             });
+        });
+        console.log(`setting browser file list: ${JSON.stringify(browserFileList)}`);
+        setBrowserFileList(browserFileList);
     }
 
     return(
@@ -57,18 +71,13 @@ function DataSetBrowser({datasetId}) {
                 <Card.Body>
                     <Container fluid="true">
                         <div style={{ height: 300 }}>
-                            <FullFileBrowser files={staticDemoFiles} folderChain={folderChain} />
+                            <FullFileBrowser files={browserFileList} folderChain={folderChain} />
                         </div>
-
-<pre>
-datasetId: [{datasetId}], path: [{path}], fileList: [{JSON.stringify(fileList)}]
-</pre>
                     </Container>
                 </Card.Body>
             </Card>
         </div>
     );
-
 }
 
 export default DataSetBrowser;

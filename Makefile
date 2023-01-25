@@ -19,7 +19,7 @@ stop: www_stop api_stop singularity_stop
 singularity_start:
 	singularity prep list >> /dev/null 2>&1 && echo "singularity already started" && exit 0 || echo "singularity not started."
 	echo "starting Singularity..."
-	nohup singularity daemon >> /singularity.log.gitignore 2>&1 &
+	nohup singularity daemon >> singularity.log.gitignore 2>&1 &
 
 singularity_stop:
 	echo "stopping singularity..."
