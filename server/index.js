@@ -30,7 +30,7 @@ app.get('/chainheight', (req, res) => {
 
 // Retrieval
 
-app.get('/fil-ls/*', (req, res) => {
+app.get('/ls/*', (req, res) => {
     console.log(`fil-ls. path param: ${req.params[0]}`);
     res.setHeader('Content-Type', 'application/json');
     execFile(`/bin/cat`, ["samples/fil-ls.json"], (error, stdout, stderr) => {
@@ -38,7 +38,7 @@ app.get('/fil-ls/*', (req, res) => {
     })
 })
 
-app.get('/fil-cp/*', (req, res) => {
+app.get('/cp/*', (req, res) => {
     res.setHeader('Content-Type', 'application/json');
     execFile(`/bin/cat`, ["samples/fil-ls.json"], (error, stdout, stderr) => {
         res.send(`FILE CONTENT TODO. Path: ${req.params[0]}`);
