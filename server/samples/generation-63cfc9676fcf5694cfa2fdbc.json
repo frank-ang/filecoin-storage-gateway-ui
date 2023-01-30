@@ -1,0 +1,51 @@
+{
+  "id": "63cfc9676fcf5694cfa2fdbc",
+  "datasetId": "63cfc9639eee3c15f9f8e725",
+  "datasetName": "91b9641e",
+  "path": "/tmp/source/91b9641e",
+  "index": 1,
+  "outDir": "/tmp/car/91b9641e",
+  "fileList": [
+    {
+      "path": "/tmp/source/91b9641e/file-10",
+      "size": 1024,
+      "start": 102,
+      "end": 1024
+    },
+    {
+      "path": "/tmp/source/91b9641e/file-2",
+      "size": 1024,
+      "start": 0,
+      "end": 204
+    }
+  ],
+  "generatedFileList": [
+    {
+      "path": "",
+      "dir": true,
+      "cid": "bafybeibj7aqogrz6gmvesk37c2vab4xab3qbno5dg4oifah4merp2eqjhq"
+    },
+    {
+      "path": "file-10",
+      "size": 1024,
+      "start": 102,
+      "end": 1024,
+      "dir": false,
+      "cid": "bafkreibtv62qaggj3utjpmbiwumenxi63ohbobjgvmirlt7wigbskpjaye"
+    },
+    {
+      "path": "file-2",
+      "size": 1024,
+      "start": 0,
+      "end": 204,
+      "dir": false,
+      "cid": "bafkreicmxlhwwlam64admb7vpvm2gpzgxkgs46lvxte7tlmkvv7timcn5u"
+    }
+  ],
+  "workerId": null,
+  "status": "completed",
+  "dataCid": "bafybeibj7aqogrz6gmvesk37c2vab4xab3qbno5dg4oifah4merp2eqjhq",
+  "pieceCid": "baga6ea4seaqhrgynwo2vcgfls3jedao54wl2fh45rjtv4dal63qbbdmpbramyeq",
+  "pieceSize": 2048,
+  "carSize": 1406
+}

@@ -5,17 +5,17 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import { Form } from 'react-bootstrap';
 import Modal from 'react-bootstrap/Modal';
-import SPCatalog from './SPCatalog';
+import SPCatalog from '../sp/SPCatalog';
 
 function ReplicaConfigEditor() {
 
     const [replicaConfig, setReplicaConfig] = useState({
-            replicaId:'0',
+            replicaId:'1',
             size:'100 TiB',
-            storageProvider:'Select an SP',
-            spid:'Select an SP ID',
-            location:'location here',
-            estimatedFees:'fees here',
+            storageProvider:'',
+            spid:'',
+            location:'',
+            estimatedFees:'',
     });
 
     const openSPCatalog = () => {

@@ -1,0 +1,16 @@
+[
+  {
+    "id": "63ce156f269fa75a52609657",
+    "datasetId": "63ce1562d1fcb9d75d101bc2",
+    "replica": 10,
+    "storageProviders": "t01000",
+    "client": "t3si3rwbmmyuwrstalnmd4ldntsxtihad3lzjkapuyla7b4r5zzix76hlqe372decseffqyzype5rbvcqwgv4q",
+    "maxNumberOfDeals": 2,
+    "status": "completed",
+    "cronSchedule": "*/2 * * * *",
+    "cronMaxDeals": 200,
+    "cronMaxPendingDeals": 2,
+    "csvOutputDir": "/tmp/singularity-csv/8ec9e56e",
+    "isForced": false
+  }
+]

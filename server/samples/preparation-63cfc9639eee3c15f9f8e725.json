@@ -1,0 +1,98 @@
+{
+  "id": "63cfc9639eee3c15f9f8e725",
+  "name": "91b9641e",
+  "path": "/tmp/source/91b9641e",
+  "minSize": 1126,
+  "maxSize": 1638,
+  "outDir": "/tmp/car/91b9641e",
+  "scanningStatus": "completed",
+  "scanned": 17,
+  "generationTotal": 9,
+  "generationActive": 0,
+  "generationPaused": 0,
+  "generationCompleted": 9,
+  "generationError": 0,
+  "generationRequests": [
+    {
+      "id": "63cfc9676fcf5694cfa2fdb3",
+      "index": 0,
+      "status": "completed",
+      "dataCid": "bafybeicxpcpewlvdwvyq4pivpixd2mw3fztms2rl624nvzhhhwcwk4ttva",
+      "pieceCid": "baga6ea4seaqclwai5qlmm7xovbq6a5yz2pfirwrt6lyvstimmgn5567spcinooy",
+      "pieceSize": 2048,
+      "carSize": 1405
+    },
+    {
+      "id": "63cfc9676fcf5694cfa2fdbc",
+      "index": 1,
+      "status": "completed",
+      "dataCid": "bafybeibj7aqogrz6gmvesk37c2vab4xab3qbno5dg4oifah4merp2eqjhq",
+      "pieceCid": "baga6ea4seaqhrgynwo2vcgfls3jedao54wl2fh45rjtv4dal63qbbdmpbramyeq",
+      "pieceSize": 2048,
+      "carSize": 1406
+    },
+    {
+      "id": "63cfc9676fcf5694cfa2fdc5",
+      "index": 2,
+      "status": "completed",
+      "dataCid": "bafybeifb7njxpm3fvkmik6yr7t6ukid6yuzbjnwqsbsj6ngodxqhohjgjm",
+      "pieceCid": "baga6ea4seaqkndizd3227bw63adtn5nuxhxsrq43phbknqd5nann7jrsgdvoihi",
+      "pieceSize": 2048,
+      "carSize": 1405
+    },
+    {
+      "id": "63cfc9676fcf5694cfa2fdce",
+      "index": 3,
+      "status": "completed",
+      "dataCid": "bafybeiasjaan3jzgue3wzvsdkaxqrs6a5mba4ln3gqrewwv5ghtorfxzcu",
+      "pieceCid": "baga6ea4seaqadknfv7lzhcq4b7ghck7ahmxu5kqcbgotk5ap3mfiodhszbboyly",
+      "pieceSize": 2048,
+      "carSize": 1405
+    },
+    {
+      "id": "63cfc9676fcf5694cfa2fdd7",
+      "index": 4,
+      "status": "completed",
+      "dataCid": "bafybeifcxbwaunmwzivk6vukniylkh3og7xvxlmqtq4woad2c65f6uuv7i",
+      "pieceCid": "baga6ea4seaqcf5wenecphfswh2wl5fj2lsjgdczlcayet2ew773ggdmdesbpiii",
+      "pieceSize": 2048,
+      "carSize": 1405
+    },
+    {
+      "id": "63cfc9676fcf5694cfa2fde0",
+      "index": 5,
+      "status": "completed",
+      "dataCid": "bafybeifwxfeolrdnyssmnkkrg66rs5izto34dzfalqymzqhuxj7vk3zayy",
+      "pieceCid": "baga6ea4seaqop375eibp2capte35kvalkt3gvfmslv4oy2qv2t3harxwgswmcpa",
+      "pieceSize": 2048,
+      "carSize": 1817
+    },
+    {
+      "id": "63cfc9676fcf5694cfa2fde9",
+      "index": 6,
+      "status": "completed",
+      "dataCid": "bafybeigmmnuhpt7yldrtlgawr3qur4h24i7x4aaeoymhrrazago5rgs2ua",
+      "pieceCid": "baga6ea4seaqagtxhiyp2tnsv2bn6rgbx4gadqipptjm67d3gkia7ufk5f2ocwga",
+      "pieceSize": 2048,
+      "carSize": 1404
+    },
+    {
+      "id": "63cfc9676fcf5694cfa2fdf2",
+      "index": 7,
+      "status": "completed",
+      "dataCid": "bafybeifw5bcjsesraqaixjqyvqiyh3wtwz5ftl5wundehdmr72g7fywv4m",
+      "pieceCid": "baga6ea4seaqfzuxxcyvvow22moq7pnu254rqhfwuo7y4npxwjyhxbenb6wgsgfi",
+      "pieceSize": 2048,
+      "carSize": 1405
+    },
+    {
+      "id": "63cfc9676fcf5694cfa2fdfb",
+      "index": 8,
+      "status": "completed",
+      "dataCid": "bafybeihgo3kbmax7pfof5qyl4suectpk7meo45ctohomndia573u7lxf3a",
+      "pieceCid": "baga6ea4seaqoixi5uvnvgu2j4tc36cpqevexnoj3vn75qqvbc3qv4qsjawzmcaq",
+      "pieceSize": 1024,
+      "carSize": 1009
+    }
+  ]
+}

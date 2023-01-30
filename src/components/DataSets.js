@@ -3,11 +3,11 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Table from 'react-bootstrap/Table'
 import ProgressBar from 'react-bootstrap/ProgressBar';
-import Preparation from './Preparation';
-import Replication from './Replication';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Preparation from './prep/Preparation';
+import Replication from './repl/Replication';
 
 function DataSets () {
     const PREPARATIONS_LIST_API_PATH = '/preparations';
@@ -73,18 +73,18 @@ function DataSets () {
                     display: 'flex',
                     justifyContent: 'left',
                 }}>
-                    Data Sets
+                    DataSet Preparation
                 </Card.Header>
                 <Card.Body>
                     <Table striped="columns" bordered hover responsive className="selectableTable">
                         <thead>
                             <tr>
-                                <th>id</th>
-                                <th>name</th>
-                                <th>path</th>
-                                <th>outDir</th>
-                                <th>scanningStatus</th>
-                                <th>progress</th>
+                                <th>DataSet ID</th>
+                                <th>Name</th>
+                                <th>Source Data Path</th>
+                                <th>CAR Files Path</th>
+                                <th>Scanning Status</th>
+                                <th>Progress</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -93,12 +93,12 @@ function DataSets () {
                                     rowSelected(e, index, prep.id)
                                 }}
                                 >
-                                <td className={index==activeRow ? 'selected' : '' }>{prep.id} | {index}</td>
-                                <td className={index==activeRow ? 'selected' : '' }>{prep.name}</td>
-                                <td className={index==activeRow ? 'selected' : '' }>{prep.path}</td>
-                                <td className={index==activeRow ? 'selected' : '' }>{prep.outDir}</td>
-                                <td className={index==activeRow ? 'selected' : '' }>{prep.scanningStatus}</td>
-                                <td className={index==activeRow ? 'selected' : '' }><ProgressBar animated now={60} /></td>
+                                <td className={index===activeRow ? 'selected' : '' }>{prep.id}</td>
+                                <td className={index===activeRow ? 'selected' : '' }>{prep.name}</td>
+                                <td className={index===activeRow ? 'selected' : '' }>{prep.path}</td>
+                                <td className={index===activeRow ? 'selected' : '' }>{prep.outDir}</td>
+                                <td className={index===activeRow ? 'selected' : '' }>{prep.scanningStatus}</td>
+                                <td className={index===activeRow ? 'selected' : '' }><ProgressBar animated now={60} /></td>
                             </tr>
                         ))}
                         </tbody>

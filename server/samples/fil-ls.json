@@ -1,0 +1,52 @@
+[
+  {
+    "type": "file",
+    "size": 1024,
+    "name": "file-1"
+  },
+  {
+    "type": "file",
+    "size": 1024,
+    "name": "file-2"
+  },
+  {
+    "type": "file",
+    "size": 1024,
+    "name": "file-3"
+  },
+  {
+    "type": "file",
+    "size": 1024,
+    "name": "file-4"
+  },
+  {
+    "type": "file",
+    "size": 1024,
+    "name": "file-5"
+  },
+  {
+    "type": "file",
+    "size": 1024,
+    "name": "file-6"
+  },
+  {
+    "type": "file",
+    "size": 1024,
+    "name": "file-7"
+  },
+  {
+    "type": "file",
+    "size": 1024,
+    "name": "file-8"
+  },
+  {
+    "type": "file",
+    "size": 1024,
+    "name": "file-9"
+  },
+  {
+    "type": "file",
+    "size": 1024,
+    "name": "file-10"
+  }
+]

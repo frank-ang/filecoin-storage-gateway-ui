@@ -1,0 +1,17 @@
+[
+  {
+    "id": "63cfc9639eee3c15f9f8e725",
+    "name": "91b9641e",
+    "path": "/tmp/source/91b9641e",
+    "minSize": 1126,
+    "maxSize": 1638,
+    "outDir": "/tmp/car/91b9641e",
+    "scanningStatus": "completed",
+    "scanned": 17,
+    "generationTotal": 9,
+    "generationActive": 0,
+    "generationPaused": 0,
+    "generationCompleted": 9,
+    "generationError": 0
+  }
+]

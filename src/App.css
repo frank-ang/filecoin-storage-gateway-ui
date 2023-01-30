@@ -96,6 +96,9 @@ table.selectableTable .selected {
 
 .my-wide-modal {
   width: 90%;
-  /* max-width: 90%; */
   max-width: none !important
+}
+
+.hidden {
+  display:none;
 }
